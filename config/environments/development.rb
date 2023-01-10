@@ -75,4 +75,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.hosts << "ea401cc1d8b548409bc0d1f85ee69f04.vfs.cloud9.ap-northeast-1.amazonaws.com"
+  
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
 end
