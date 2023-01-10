@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  root to: "public/homes#top"
+  get 'about' => 'public/homes#about', as: 'about'
+
+  devise_for :users
+
   namespace :public do
     get 'favorites/create'
     get 'favorites/destroy'
@@ -33,6 +39,6 @@ Rails.application.routes.draw do
     get 'items/update'
     get 'items/search'
   end
-  devise_for :users
+  #devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
