@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
+  
   root to: "public/homes#top"
   get 'about' => 'public/homes#about', as: 'about'
 
