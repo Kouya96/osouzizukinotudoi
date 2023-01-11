@@ -10,7 +10,48 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <h3 class="logo">
+            <%= link_to "ながのCAKE", root_path, class: 'nav-link text-dark' %></h3>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+
+
+              <!--会員側-->
+              <% if user_signed_in? %>
+                  <p>ようこそ、<%= current_customer.first_name %>さん！</p>
+                  <li><%= link_to "マイページ", public_customers_show_path, class: 'nav-link text-dark' %></li><!--マイページへのリンク-->
+                  <li><%= link_to "商品一覧", public_items_index_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
+                  <li><%= link_to "ログアウト", public_sessions_destroy_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
+
+              <% elsif admin_signed_in? %>
+                  <li><%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark' %></li><!--商品一覧リンク-->
+                  <li><%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %></li><!--会員一覧リンク-->
+                  <li><%= link_to "投稿履歴一覧", admin_path, class: 'nav-link text-dark' %></li><!--注文履歴一覧リンク-->
+                  <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></li><!--ジャンル一覧リンク-->
+                  <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'nav-link text-dark', method: :delete %></li>
+
+              <% else %>
+                  <li><%= link_to "About", about_path, 'data-turbolinks': false, class: 'nav-link text-dark' %></li><!--aboutリンク-->
+                  <li><%= link_to "商品一覧", public_items_index_path, class: 'nav-link text-dark' %></li><!--商品一覧リンク-->
+                  <li><%= link_to "新規登録", public_registrations_create_path, class: 'nav-link text-dark' %></li><!--新規登録リンク-->
+                  <li><%= link_to "ログイン", public_sessions_create_path, class: 'nav-link text-dark' %></li><!--ログイン画面リンク-->
+              <% end %>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
+    <footer>
+    </footer>
   </body>
 </html>
