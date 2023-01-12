@@ -1,10 +1,10 @@
-class Public::SessionsController < ApplicationController
-  def new
-  end
+class Public::SessionsController < Devise::SessionsController
+  # def new
+  # end
 
-  def create
-  end
+  # def create
+  # end
 
-  def destroy
-  end
+  # def destroy
+  # end
 end
