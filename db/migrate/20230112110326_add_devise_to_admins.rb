@@ -10,9 +10,6 @@ class AddDeviseToAdmins < ActiveRecord::Migration[6.1]
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
-      
-      t.string :name, null: false
-      t.text :introduction
 
       ## Rememberable
       t.datetime :remember_created_at
@@ -23,6 +20,12 @@ class AddDeviseToAdmins < ActiveRecord::Migration[6.1]
       # t.datetime :last_sign_in_at
       # t.string   :current_sign_in_ip
       # t.string   :last_sign_in_ip
+
+      t.string :last_name, null: false
+      t.string :first_name, null: false
+      t.string :last_name_kana, null: false
+      t.string :first_name_kana, null: false
+      t.text :introduction
 
       ## Confirmable
       # t.string   :confirmation_token
