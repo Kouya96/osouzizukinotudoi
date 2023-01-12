@@ -3,7 +3,8 @@
 <div class="container">
 <h2>会員の方はこちらからログイン</h2>
 
-<%= form_for(resource, as: resource_name, url: public_sessions_create_path(resource_name)) do |f| %>
+<%= form_with model: @user, url: public_sessions_create_path do |f| %>
+<!--%= form_for(resource, as: resource_name, url: public_sessions_create_path(resource_name)) do |f| %>-->
   <div>
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example" %>
