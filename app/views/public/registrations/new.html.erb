@@ -3,9 +3,10 @@
 <div class="container">
 <h2>新規会員登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
-  
+<%#= form_for(resource, as: resource_name, url: user_session_path(resource_name)) do |f| %>
+<%= form_with model: @user, url: user_session_path do |f| %>
+  <%#= render "public/shared/error_messages", resource: resource %>
+
       <div class="row">
         <label class="col-lg-3">名前</label>
         <div class="col-lg-3">
@@ -82,7 +83,7 @@
       <h3>既に登録済みの方</h3>
       <div class="col-sm-3">
       <%- if controller_name != 'sessions' %>
-        <%= link_to "こちら", public_sessions_create_path(resource_name) %>
+        <%= link_to "こちら", user_session_path(resource_name) %>
       <% end %>
         からログインしてください
     </div>

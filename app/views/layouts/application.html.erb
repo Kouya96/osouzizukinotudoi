@@ -28,9 +28,9 @@
               <!--会員側-->
               <% if user_signed_in? %>
                   <p>ようこそ、<%= current_customer.first_name %>さん！</p>
-                  <li><%= link_to "マイページ", public_customers_show_path, class: 'nav-link text-dark' %></li><!--マイページへのリンク-->
-                  <li><%= link_to "商品一覧", public_items_index_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
-                  <li><%= link_to "ログアウト", public_sessions_destroy_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
+                  <li><%= link_to "マイページ", public_customer_path, class: 'nav-link text-dark' %></li><!--マイページへのリンク-->
+                  <li><%= link_to "商品一覧", public_items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
+                  <li><%= link_to "ログアウト", destroy_user_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
 
               <% elsif admin_signed_in? %>
                   <li><%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark' %></li><!--商品一覧リンク-->
@@ -41,9 +41,9 @@
 
               <% else %>
                   <li><%= link_to "About", about_path, 'data-turbolinks': false, class: 'nav-link text-dark' %></li><!--aboutリンク-->
-                  <li><%= link_to "商品一覧", public_items_index_path, class: 'nav-link text-dark' %></li><!--商品一覧リンク-->
-                  <li><%= link_to "新規登録", public_registrations_create_path, class: 'nav-link text-dark' %></li><!--新規登録リンク-->
-                  <li><%= link_to "ログイン", public_sessions_new_path, class: 'nav-link text-dark' %></li><!--ログイン画面リンク-->
+                  <li><%= link_to "商品一覧", public_items_path, class: 'nav-link text-dark' %></li><!--商品一覧リンク-->
+                  <li><%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %></li><!--新規登録リンク-->
+                  <li><%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %></li><!--ログイン画面リンク-->
               <% end %>
 
             </ul>
