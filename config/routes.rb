@@ -34,8 +34,13 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   namespace :public do
     resources :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
-    resources :users, only: [:show, :edit, :update, :unsubscride, :withdraw]
+
+    get 'users/unsubscride' => 'users#unsubscride', as: 'unsubscride'
+    patch 'users/withdraw' => 'users#withdraw', as: 'withdraw'
+
+    resources :users, only: [:show, :edit, :update, :withdraw]
     resources :items, only: [:index, :show, :new, :destroy, :create, :edit, :update, :search]
+
   end
 
 #実装終了するまで一応残しておく※終了後削除する
