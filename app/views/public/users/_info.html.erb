@@ -28,7 +28,7 @@
   <% if current_user != user %>
     <td><%= render "relationships/btn", user: user %></td>
   <% else %>
-  <%= link_to edit_public_user(user), class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" do %>
+  <%= link_to edit_public_user_path(user.id), class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" do %>
     <i class="fas fa-user-cog"></i>
   <% end %>
   <% end %>
