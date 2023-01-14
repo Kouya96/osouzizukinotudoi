@@ -1,0 +1,35 @@
+<table class='table'>
+  <tr><%= image_tag user.get_profile_image, size:'100x100' %></tr>
+  <tr>
+	  <th>名前</th>
+	  <th><%= user.last_name %> <%= user.first_name %></th>
+  </tr>
+
+  <tr>
+	  <th>自己紹介文</th>
+	  <th><%= user.introduction %></th>
+  </tr>
+
+<!--一旦コメントアウト中、フォロー機能実装の時に使用-->
+  <!--<tr>-->
+  <!--  <th>フォロー</th>-->
+  <!--  <th><%#= link_to user.followings.count, user_followings_path(user) %></th>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--  <th>フォロワー</th>-->
+  <!--  <th><%#= link_to user.followers.count, user_followers_path(user) %></th>-->
+  <!--</tr>-->
+
+</table>
+
+
+<div class='row'>
+
+  <% if current_user != user %>
+    <td><%= render "relationships/btn", user: user %></td>
+  <% else %>
+  <%= link_to edit_public_user(user), class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
+  <% end %>
+</div>

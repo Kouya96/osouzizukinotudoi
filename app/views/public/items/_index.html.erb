@@ -1,0 +1,24 @@
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>タイトル</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% items.each do |item| %>
+      <tr>
+        <td><%= link_to(item.user) do %>
+          <%= image_tag item.user.get_profile_image, size:'50x50' %>
+          <% end %>
+        </td>
+        <td><%= link_to item.title,book, class: "item_#{item.id}" %></td>
+        <td><%= item.body %></td>
+        <td>コメント数: <%= item.item_comments.count %></td>
+        <td class = "favorite-<%= item.id %>"><%= render "favorites/btn", item: item %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
