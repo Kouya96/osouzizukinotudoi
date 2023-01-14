@@ -1,0 +1,32 @@
+<!--会員ログイン画面-->
+
+<div class="container">
+<h2>会員の方はこちらからログイン</h2>
+
+<%= form_with model: @user, url: user_session_path do |f| %>
+<!--%= form_for(resource, as: resource_name, url: public_sessions_create_path(resource_name)) do |f| %>-->
+  <div>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example" %>
+  </div>
+
+  <div>
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+<br>
+  <div class="actions">
+    <%= f.submit "ログイン", class: "btn btn-primary" %>
+  </div>
+  <br><br>
+    <% end %>
+<div class="row">
+  <div class="col-xs-5">
+    <h4>登録がお済でない方</h4>
+      <%= link_to "こちら", new_user_registration_path %>
+      <strong>から新規登録を行ってください。</strong>
+  </div>
+</div>
+
+</div>

@@ -1,6 +1,6 @@
-class Public::CustomersController < ApplicationController
+class Public::UsersController < ApplicationController
   def show
-    @customer = current_customer
+    @user = current_user
   end
 
   def edit
