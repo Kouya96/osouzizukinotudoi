@@ -6,8 +6,8 @@ Rails.application.routes.draw do
  # 顧客用
 # URL /customers/sign_in ...
 devise_for :users,skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
+  registrations: "public/users/registrations",
+  sessions: 'public/users/sessions'
 }
 
 # 管理者用
@@ -34,7 +34,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   namespace :public do
     resources :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
-    resources :customers, only: [:show, :edit, :update, :unsubscride, :withdraw]
+    resources :users, only: [:show, :edit, :update, :unsubscride, :withdraw]
     resources :items, only: [:index, :show, :new, :destroy, :create, :edit, :update, :search]
   end
 

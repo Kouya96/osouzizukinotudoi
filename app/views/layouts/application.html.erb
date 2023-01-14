@@ -27,8 +27,8 @@
 
               <!--会員側-->
               <% if user_signed_in? %>
-                  <p>ようこそ、<%= current_customer.first_name %>さん！</p>
-                  <li><%= link_to "マイページ", public_customer_path, class: 'nav-link text-dark' %></li><!--マイページへのリンク-->
+                  <p>ようこそ、<%= current_user.first_name %>さん！</p>
+                  <li><%= link_to "マイページ", public_user_path(current_user.id), class: 'nav-link text-dark' %></li><!--マイページへのリンク-->
                   <li><%= link_to "商品一覧", public_items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
                   <li><%= link_to "ログアウト", destroy_user_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
 
