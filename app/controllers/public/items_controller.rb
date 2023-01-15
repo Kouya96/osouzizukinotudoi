@@ -8,8 +8,8 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @item_new = Item.new
-    @item_comment = ItemComment.new
+    #@item_new = Item.new
+    #@item_comment = ItemComment.new
   end
 
   def new
