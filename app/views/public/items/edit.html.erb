@@ -1,10 +1,10 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-  		<h1>Editing</h1>
+  		<h1>投稿編集画面</h1>
   		<%= render 'layouts/errors', obj: @item %>
   		<%= render 'form', item: @item %>
-  		<%= link_to 'Show', @item %> |
-  		<%= link_to 'Back', item_path, class: "back" %>
+  		<%= link_to 'Show', public_item_path(@item) %> |
+  		<%= link_to 'Back', public_item_path, class: "back" %>
   </div>
 </div>

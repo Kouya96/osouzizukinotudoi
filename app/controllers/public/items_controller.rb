@@ -8,7 +8,7 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    #@item_new = Item.new
+    @item_new = Item.new
     #@item_comment = ItemComment.new
   end
 
@@ -18,14 +18,14 @@ class Public::ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to items_path, notice: "successfully delete book!"
+    redirect_to public_items_path, notice: "削除しました"
   end
 
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
     if @item.save
-      redirect_to public_items_path, notice: "You have created item successfully."
+      redirect_to public_items_path, notice: "投稿が正常に完了しました"
     else
       @items = Item.all
       render 'index'
@@ -39,7 +39,7 @@ class Public::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to public_item_path(@item), notice: "You have updated book successfully."
+      redirect_to public_item_path(@item), notice: "正常に更新しました"
     else
       render "edit"
     end

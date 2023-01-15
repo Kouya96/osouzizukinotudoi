@@ -1,1 +1,63 @@
-<%= @item.name %>
+<div class='container'>
+  <div class='row'>
+
+    <div class='col-md-3'>
+
+      <% if current_user.present? %>
+      <h2>ユーザー情報</h2>
+      <%= render 'public/users/info', user: current_user %>
+      <% end %>
+
+      <!--<h2 class="mt-3"></h2>-->
+      <!--<%#= render 'public/items/form' %>-->
+    </div>
+
+
+    <div class='col-md-8 offset-md-1'>
+  		<h2>オススメ商品の詳細</h2>
+
+  		<table class='table'>
+        <thead>
+          <tr>
+            <th>掃除箇所</th>
+            <th>タイトル</th>
+            <th>オススメ商品名</th>
+            <th>★評価</th>
+         </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><%= @item.genre.name %></td>
+            <td><%= @item.title %></td>
+            <td><%= @item.name %></td>
+            <td>★評価ここに</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+     <table class='table'>
+        <thead>
+          <tr>
+            <th>～実際に使ってみた感想～</th>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><%= @item.body %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <% if @item.user == current_user %>
+            <td><%= link_to '編集する', edit_public_item_path(@item), class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to '削除する', public_item_path(@item), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+      <% end %>
+
+      <!--<%#= render "comments/index", book: @item %>-->
+      <!--<%#= render "comments/form", book: @item, comment: @item_comment %>-->
+
+    </div>
+  </div>
+</div>
