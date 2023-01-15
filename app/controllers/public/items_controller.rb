@@ -25,7 +25,7 @@ class Public::ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user_id = current_user.id
     if @item.save
-      redirect_to public_item_path(@item), notice: "You have created book successfully."
+      redirect_to public_items_path, notice: "You have created item successfully."
     else
       @items = Item.all
       render 'index'
@@ -52,10 +52,8 @@ class Public::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :body)
+    params.require(:item).permit(:title, :body, :genre_id, :name, :star)
   end
-
-
 
   def ensure_correct_user
      @item = Item.find(params[:id])
