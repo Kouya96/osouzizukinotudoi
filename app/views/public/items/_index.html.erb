@@ -1,23 +1,32 @@
 <table class='table table-hover table-inverse'>
   <thead>
     <tr>
-      <th></th>
+      <th>掃除箇所</th>
       <th>タイトル</th>
-      <th>Opinion</th>
+      <th>オススメ商品名</th>
+      <th>★評価</th>
+      <th>詳細ページ</th>
+      <!--<th>削除</th>-->
       <th colspan="3"></th>
     </tr>
   </thead>
   <tbody>
     <% items.each do |item| %>
       <tr>
-        <td><%= link_to(item.user) do %>
-          <%= image_tag item.user.get_profile_image, size:'50x50' %>
-          <% end %>
-        </td>
-        <td><%= link_to item.title,book, class: "item_#{item.id}" %></td>
-        <td><%= item.body %></td>
-        <td>コメント数: <%= item.item_comments.count %></td>
-        <td class = "favorite-<%= item.id %>"><%= render "favorites/btn", item: item %></td>
+        <td><%= item.genre.name %></td>
+        <td><%= item.title %></td>
+        <td><%= item.name %></td>
+        <td>★評価ここに</td>
+        <td><%= link_to "詳細", public_item_path(item) %></td>
+
+        <!--<td><%#= link_to(item.user) do %>-->
+        <!--  <%#= image_tag item.user.get_profile_image, size:'50x50' %>-->
+        <!--  <%# end %>-->
+        <!--</td>-->
+        <!--<td><%#= link_to item.title,book, class: "item_#{item.id}" %></td>-->
+        <!--<td>コメント数: <%#= item.item_comments.count %></td>-->
+        <!--<td class = "favorite-<%#= item.id %>"><%#= render "favorites/btn", item: item %></td>-->
+
       </tr>
     <% end %>
   </tbody>

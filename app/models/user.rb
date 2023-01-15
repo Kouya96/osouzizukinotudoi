@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   #has_many
-
+  has_many :items
   has_one_attached :profile_image
 
   def get_profile_image

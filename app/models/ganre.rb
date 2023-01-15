@@ -1,2 +1,0 @@
-class Ganre < ApplicationRecord
-end

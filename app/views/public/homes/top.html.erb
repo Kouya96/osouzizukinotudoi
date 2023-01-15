@@ -14,28 +14,28 @@
       <h3 class="recommended-items"><i class="fas fa-star"></i> 新着投稿商品 <i class="fas fa-star"></i></h3>
 
       <!-- 商品を4つ表示するようにする -->
-        <div class="col-xs-9 col-xs-offset-1">
-          <div class="flex">
-            <% @items.last(4).each do |item| %>
-              <div class="box" style="float:left; margin-right:80px;">
-                <%= link_to public_items_index_path(item.id) ,style: "color: black;", data: {"turbolinks" => false} do %>
-                  <% if item.image.attached? %>
+    <!--    <div class="col-xs-9 col-xs-offset-1">-->
+    <!--      <div class="flex">-->
+    <!--        <%# @items.last(4).each do |item| %>-->
+    <!--          <div class="box" style="float:left; margin-right:80px;">-->
+    <!--            <%#= link_to public_items_path(item.id) ,style: "color: black;", data: {"turbolinks" => false} do %>-->
+    <!--              <%# if item.image.attached? %>-->
 
-                  <%= image_tag item.image, size: "180x125" %>
-                  <% else %>
+    <!--              <%#= image_tag item.image, size: "180x125" %>-->
+    <!--              <%# else %>-->
 
-　                <%= image_tag 'no_image.jpg', size: "180x125" %>
-                  <% end %>
-                  <br>
-                  <%= item.name %><br>
-                  <% end %>
-              </div>
-                  <% end %>
-            <div>
-        </div>
+　   <!--             <%#= image_tag 'no_image.jpg', size: "180x125" %>-->
+    <!--              <%# end %>-->
+    <!--              <br>-->
+    <!--              <%#= item.name %><br>-->
+    <!--              <%# end %>-->
+    <!--          </div>-->
+    <!--              <%# end %>-->
+    <!--        <div>-->
+    <!--    </div>-->
 
-        <br>
-          </div>
-    <div class="pull-right">
-    <h5><%= link_to "全ての商品を見る＞", public_items_path %></h5>
+    <!--    <br>-->
+    <!--      </div>-->
+    <!--<div class="pull-right">-->
+    <!--<h5><%#= link_to "全ての商品を見る＞", public_items_path %></h5>-->
     </div>
