@@ -1,4 +1,5 @@
 class Public::ItemsController < ApplicationController
+  before_action :ensure_guest_user, only: [:create]
 
   #オススメ商品一覧
   def index
@@ -61,4 +62,12 @@ class Public::ItemsController < ApplicationController
       redirect_to item_path
      end
   end
+
+  def ensure_guest_user
+    @user = current_user
+    if @user.last_name == "guestuser"
+      redirect_to public_items_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    end
+  end
+
 end

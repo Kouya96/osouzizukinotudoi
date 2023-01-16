@@ -14,10 +14,13 @@ class User < ApplicationRecord
 
   #ゲストログイン
   def self.guest
-    find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
+    find_or_create_by!( email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
-      user.name = "guestuser"
-    end
+      user.last_name = "guestuser"
+      user.first_name = "guestuser"
+      user.last_name_kana = "guestuser"
+      user.first_name_kana = "guestuser"
+  end
   end
 
 end

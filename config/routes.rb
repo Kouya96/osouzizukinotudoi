@@ -21,7 +21,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   #ゲストログイン
   devise_scope :user do
-    post 'public/users/guest_sign_in', to: 'public/userssessions#guest_sign_in'
+    post 'public/users/guest_sign_in', to: 'public/users/sessions#guest_sign_in'
   end
 
   #devise_for :users
