@@ -3,6 +3,14 @@
 class Public::Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
+  #ゲストログイン
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to user_path(user), notice: 'ゲストユーザーでログインしました。'
+  end
+end
+
   # GET /resource/sign_in
   # def new
   #   super
@@ -24,4 +32,4 @@ class Public::Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-end
+

@@ -1,3 +1,5 @@
+<!--ユーザー情報部分テンプレート-->
+
 <table class='table'>
   <tr><%= image_tag user.get_profile_image, size:'100x100' %></tr>
   <tr>
@@ -9,17 +11,6 @@
 	  <th>自己紹介文</th>
 	  <th><%= user.introduction %></th>
   </tr>
-
-<!--一旦コメントアウト中、フォロー機能実装の時に使用-->
-  <!--<tr>-->
-  <!--  <th>フォロー</th>-->
-  <!--  <th><%#= link_to user.followings.count, user_followings_path(user) %></th>-->
-  <!--</tr>-->
-  <!--<tr>-->
-  <!--  <th>フォロワー</th>-->
-  <!--  <th><%#= link_to user.followers.count, user_followers_path(user) %></th>-->
-  <!--</tr>-->
-
 </table>
 
 
@@ -32,4 +23,11 @@
     <i class="fas fa-user-cog"></i>
   <% end %>
   <% end %>
+  
+  <!--ゲストログイン-->
+<!--  <%# if user.name != "guestuser" %>-->
+<!--<div class='row'>-->
+<!--  <%#= link_to '',edit_public_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>-->
+<!--</div>-->
+<!--  <%# end %>-->
 </div>

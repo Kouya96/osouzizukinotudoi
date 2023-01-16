@@ -8,23 +8,35 @@
                 <strong class="information-link">登録情報</strong>
                 <%= link_to " 編集する", edit_public_user_path, class: "btn btn-success" %>
             </p>
+            
+            
+            <tr>
+                <td class="col-xs-2">プロフィール画像</td>
+                <td><%#= @user.image %></td>
+            <tr>
+            
+            
             <tr>
                 <td class="col-xs-2">氏名</td>
                 <td><%= @user.last_name %>&nbsp;<%= @user.first_name %></td>
             </tr>
+
 
             <tr>
                 <td class="col-xs-2">カナ</td>
                 <td><%= @user.last_name_kana %>&nbsp;<%= @user.first_name_kana %></td>
             </tr>
 
+
             <tr>
                 <td class="col-xs-2">メールアドレス</td>
                 <td><%= @user.email %></td>
 
+
              <tr>
                 <td class="col-xs-2">自己紹介文</td>
                 <td><%= @user.introduction %></td>
+
 
             </tr>
         </table>
