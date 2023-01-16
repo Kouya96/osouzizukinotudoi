@@ -19,6 +19,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   root to: "public/homes#top"
   get 'about' => 'public/homes#about', as: 'about'
 
+  #ゲストログイン
+  devise_scope :user do
+    post 'public/users/guest_sign_in', to: 'public/userssessions#guest_sign_in'
+  end
+
   #devise_for :users
 
   namespace :admin do

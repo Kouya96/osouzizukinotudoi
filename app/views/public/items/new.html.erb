@@ -1,12 +1,31 @@
-<h1>新規投稿</h1>
+<%= form_with model: [:public, @item],local:true do |f| %>
 
-<%= form_with model: @item, url:'public_items_path' do |f| %>
+  <div class="form-group">
+    <%= f.label :清掃箇所 %>
+    <%= f.select :genre_id, Genre.all.collect{ |g| [g.name, g.id] }, {include_blank: '選択してください'}, {class: 'form-control'} %>
+  </div>
 
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :投稿タイトル %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
 
-  <h4>本文</h4>
-  <%= f.text_area :body %>
+  <div class="form-group">
+    <%= f.label :オススメ商品名 %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :実際使ってみた感想 %>
+    <%= f.text_area :body, class: 'form-control' %>
+  </div>
+
+  <!--下記を星評価に修正する-->
+  <%= f.hidden_field :star, value: 1 %>
+
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-success' %>
+  </div>
 
   <h4>画像</h4>
   <%= f.file_field :image, accept: "image/*" %>
