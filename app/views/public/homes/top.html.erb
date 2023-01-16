@@ -1,4 +1,11 @@
 <div style="text-align: center">
+
+    <!--ゲストログインボタン-->
+  <div class="row">
+    <%= link_to 'ゲストログイン（閲覧用）', public_users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+  </div>
+
+
 <img src="assets/Top用画像1.jpg">
   <p>
     <h6>お掃除好きの集いへようこそへ♪<br>
@@ -9,12 +16,6 @@
     </h6>
   </p>
 </div>
-
-<!--ゲストログインボタン-->
-  <div class="row">
-    <%= link_to 'ゲストログイン（閲覧用）', public_users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-  </div>
-
 
 <!--新着投稿をここに表示させたい-->
     <div class="container">

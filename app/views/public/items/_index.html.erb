@@ -19,12 +19,15 @@
         <td>★評価ここに</td>
         <td><%= link_to "詳細", public_item_path(item) %></td>
 
-        <!--<td><%#= link_to(item.user) do %>-->
-        <!--  <%#= image_tag item.user.get_profile_image, size:'50x50' %>-->
-        <!--  <%# end %>-->
+        <!--<td><%#= link_to public_user_path(item.user) do %>-->
+          <%#= image_tag item.user.get_profile_image, size:'50x50' %>
+          <%# end %>
         <!--</td>-->
-        <!--<td><%#= link_to item.title,book, class: "item_#{item.id}" %></td>-->
-        <!--<td>コメント数: <%#= item.item_comments.count %></td>-->
+        
+        
+        <td><%#= link_to item.title, public_item_path(item.id), class: "item_#{item.id}" %></td>
+        <td>コメント数: <%= item.comments.count %></td>
+        
         <!--<td class = "favorite-<%#= item.id %>"><%#= render "favorites/btn", item: item %></td>-->
 
       </tr>
