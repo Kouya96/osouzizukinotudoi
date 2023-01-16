@@ -1,4 +1,6 @@
 class Public::UsersController < ApplicationController
+before_action :ensure_guest_user, only: [:edit]
+
   def show
     @user = current_user
   end
@@ -32,7 +34,14 @@ class Public::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :introduction, :id)
+    params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :introduction, :id, :profile_image)
+  end
+
+  def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.last_name == "guestuser"
+      redirect_to public_items_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    end
   end
 
 end
