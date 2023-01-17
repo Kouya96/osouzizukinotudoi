@@ -11,6 +11,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+<!--ここからヘッダー部分-->
   <body class="d-flex flex-column vh-100">
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -26,13 +27,14 @@
             <ul class="navbar-nav ml-auto">
 
 
-              <!--会員側-->
+              <!--会員ログインしているとき-->
               <% if user_signed_in? %>
-                  <p>ようこそ、<%= current_user.first_name %>さん！</p>
+                  <p><%= current_user.first_name %>さんでログイン中</p>
                   <li><%= link_to "マイページ", public_user_path(current_user.id), class: 'nav-link text-dark' %></li><!--マイページへのリンク-->
                   <li><%= link_to "商品一覧", public_items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
                   <li><%= link_to "ログアウト", destroy_user_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
 
+　　　　　　　<!--管理者ログインしているとき-->
               <% elsif admin_signed_in? %>
                   <li><%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark' %></li><!--商品一覧リンク-->
                   <li><%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %></li><!--会員一覧リンク-->
@@ -40,10 +42,12 @@
                   <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></li><!--ジャンル一覧リンク-->
                   <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'nav-link text-dark', method: :delete %></li>
 
+　　　　　　　<!--ログインしていないとき-->
               <% else %>
                   <li><%= link_to "About", about_path, 'data-turbolinks': false, class: 'nav-link text-dark' %></li><!--aboutリンク-->
                   <li><%= link_to "商品一覧", public_items_path, class: 'nav-link text-dark' %></li><!--商品一覧リンク-->
-                  <li><%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %></li><!--新規登録リンク-->
+                  <li><%= link_to "新規会員登録", new_user_registration_path, class: 'nav-link text-dark' %></li><!--新規登録リンク-->
+                  <Li><%= link_to 'ゲストログイン（閲覧用）', public_users_guest_sign_in_path, class: 'nav-link text-dark', method: :post %></Li>
                   <li><%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %></li><!--ログイン画面リンク-->
               <% end %>
 
