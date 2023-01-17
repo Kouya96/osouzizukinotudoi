@@ -16,21 +16,35 @@
         <td><%= item.genre.name %></td>
         <td><%= item.title %></td>
         <td><%= item.name %></td>
-        <td>★評価ここに</td>
+
+
+        <td><div id=<%= "view_star_#{item.id}" %> data-score="<%= item.star %>"></div></td>
+        <script>
+          // scriptファイルをどのidの部分に配置するかを指定
+          var r_elem = document.querySelector("<%= "#view_star_#{item.id}" %>");
+          var r_opt = {
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          readOnly: true,
+          };
+           raty(r_elem,r_opt);
+        </script>
+
         <td><%= link_to "詳細", public_item_path(item) %></td>
 
         <!--<td><%#= link_to public_user_path(item.user) do %>-->
           <%#= image_tag item.user.get_profile_image, size:'50x50' %>
           <%# end %>
         <!--</td>-->
-        
-        
+
+
         <td><%#= link_to item.title, public_item_path(item.id), class: "item_#{item.id}" %></td>
         <td>コメント数: <%= item.comments.count %></td>
-        
+
         <!--<td class = "favorite-<%#= item.id %>"><%#= render "favorites/btn", item: item %></td>-->
 
       </tr>
     <% end %>
   </tbody>
 </table>
+

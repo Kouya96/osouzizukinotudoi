@@ -5,6 +5,7 @@ class Public::ItemsController < ApplicationController
   def index
     @items = Item.all
     @item = Item.new
+    #byebug
   end
 
   def show
