@@ -55,8 +55,8 @@
             <td><%= link_to '削除する', public_item_path(@item), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
       <% end %>
 
-      <!--<%#= render "comments/index", book: @item %>-->
-      <!--<%#= render "comments/form", book: @item, comment: @item_comment %>-->
+      <%= render "public/comments/index", item: @item %>
+      <%= render "public/comments/form", item: @item, comment: @item_comment %>
 
     </div>
   </div>

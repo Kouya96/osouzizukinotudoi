@@ -38,13 +38,15 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   namespace :public do
     resources :favorites, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
+    #resources :comments, only: [:create, :destroy]
 
     get 'users/unsubscride' => 'users#unsubscride', as: 'unsubscride'
     patch 'users/withdraw' => 'users#withdraw', as: 'withdraw'
 
     resources :users, only: [:show, :edit, :update, :withdraw]
-    resources :items, only: [:index, :show, :new, :destroy, :create, :edit, :update, :search]
+    resources :items, only: [:index, :show, :new, :destroy, :create, :edit, :update, :search] do
+      resources :comments, only: [:create, :destroy]
+    end
 
   end
 
