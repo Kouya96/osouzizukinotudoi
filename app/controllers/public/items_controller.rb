@@ -26,6 +26,7 @@ class Public::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
+    @item.star = 0 if @item.star.nil?
     if @item.save
       redirect_to public_items_path, notice: "投稿が正常に完了しました"
     else

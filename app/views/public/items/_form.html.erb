@@ -20,6 +20,7 @@
     <div id="post_raty"></div>
         <script>
         // scriptファイルをどのidの部分に配置するかを指定
+        $("#post_raty").empty();
         let elem = document.querySelector('#post_raty');
         let opt = {
         starOff:  '<%= asset_path('star-off.png') %>',

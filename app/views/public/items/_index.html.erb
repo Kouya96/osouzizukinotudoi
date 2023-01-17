@@ -20,6 +20,7 @@
 
         <td><div id=<%= "view_star_#{item.id}" %> data-score="<%= item.star %>"></div></td>
         <script>
+          $("<%= "#view_star_#{item.id}" %>").empty();
           // scriptファイルをどのidの部分に配置するかを指定
           var r_elem = document.querySelector("<%= "#view_star_#{item.id}" %>");
           var r_opt = {
