@@ -8,6 +8,7 @@ class Item < ApplicationRecord
 
   validates :title,presence:true
   validates :body,presence:true,length:{maximum:200}
+  validates :star,presence:true
 
   def self.search_for(content, method)
     if method == 'perfect'

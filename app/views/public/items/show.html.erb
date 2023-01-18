@@ -31,7 +31,20 @@
             <td><%= @item.genre.name %></td>
             <td><%= @item.title %></td>
             <td><%= @item.name %></td>
-            <td>★評価ここに</td>
+
+        <td><div id=<%= "view_star_#{@item.id}" %> data-score="<%= @item.star %>"></div></td>
+        <script>
+          // scriptファイルをどのidの部分に配置するかを指定
+          $("<%= "#view_star_#{@item.id}" %>").empty();
+          var r_elem = document.querySelector("<%= "#view_star_#{@item.id}" %>");
+          var r_opt = {
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          readOnly: true,
+          };
+           raty(r_elem,r_opt);
+        </script>
+
           </tr>
         </tbody>
       </table>

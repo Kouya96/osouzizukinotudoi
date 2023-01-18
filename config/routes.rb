@@ -24,28 +24,27 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     post 'public/users/guest_sign_in', to: 'public/users/sessions#guest_sign_in'
   end
 
-  #devise_for :users
 
   namespace :admin do
+
     get 'homes/top'
-  end
 
-  namespace :admin do
     resources :items
     resources :genres, only: [:index, :create, :edit, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update]
+    patch '/users/:id/withdraw' => 'users#withdraw', as: 'withdraw'
+    patch '/users/:id/restore' => 'users#restore', as: 'restore'
   end
 
   namespace :public do
     resources :favorites, only: [:create, :destroy]
-    #resources :comments, only: [:create, :destroy]
 
     get 'users/unsubscride' => 'users#unsubscride', as: 'unsubscride'
     patch 'users/withdraw' => 'users#withdraw', as: 'withdraw'
 
     resources :users, only: [:show, :edit, :update, :withdraw]
     resources :items, only: [:index, :show, :new, :destroy, :create, :edit, :update, :search] do
-      resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
     end
 
   end
