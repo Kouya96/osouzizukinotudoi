@@ -26,12 +26,14 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 
   namespace :admin do
-    
+
     get 'homes/top'
-    
+
     resources :items
     resources :genres, only: [:index, :create, :edit, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update]
+    patch '/users/:id/withdraw' => 'users#withdraw', as: 'withdraw'
+    patch '/users/:id/restore' => 'users#restore', as: 'restore'
   end
 
   namespace :public do

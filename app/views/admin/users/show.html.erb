@@ -1,0 +1,17 @@
+このユーザーは
+<div><%= @user.last_name + @user.first_name %></div>
+<div><%= @user.email %></div>
+<div><%= @user.introduction %></div>
+
+<% if @user.is_active %>
+  このユーザーは有効です。
+  <%= link_to "退会処理", admin_withdraw_path, method: :patch, class: "btn btn-danger" %>
+
+<% else %>
+  このユーザーは退会済みです。
+  <%= link_to "有効にする", admin_restore_path, method: :patch, class: "btn btn-success" %>
+
+<% end %>
+
+
+
