@@ -13,4 +13,6 @@ Genre.create([
   { name: 'リビング' },
   { name: 'トイレ' },
   { name: 'お風呂' },
+  { name: '玄関' },
+  { name: 'ベランダ' },
 ])
