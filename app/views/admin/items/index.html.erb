@@ -1,47 +1,10 @@
-<table class='table table-hover table-inverse'>
-  <thead>
-    <tr>
-      <th>掃除箇所</th>
-      <th>タイトル</th>
-      <th>オススメ商品名</th>
-      <th>★評価</th>
-      <th>詳細ページ</th>
-      <!--<th>削除</th>-->
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% items.each do |item| %>
-      <tr>
-        <td><%= item.genre.name %></td>
-        <td><%= item.title %></td>
-        <td><%= item.name %></td>
+<h1>投稿一覧</h1>
 
-        <td><div id="post_raty"></div>
-          <script>
-            // scriptファイルをどのidの部分に配置するかを指定
-            let elem = document.querySelector('#post_raty');
-            let opt = {
-            //星画像の指定などのオプションをここに記述,
-             };
-            raty(elem,opt);
-         </script></td>
-
-
-        <td><%= link_to "詳細", public_item_path(item) %></td>
-
-        <!--<td><%#= link_to public_user_path(item.user) do %>-->
-          <%#= image_tag item.user.get_profile_image, size:'50x50' %>
-          <%# end %>
-        <!--</td>-->
-
-
-        <td><%#= link_to item.title, public_item_path(item.id), class: "item_#{item.id}" %></td>
-        <td>コメント数: <%= item.comments.count %></td>
-
-        <!--<td class = "favorite-<%#= item.id %>"><%#= render "favorites/btn", item: item %></td>-->
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @items.each do |item| %>
+<%= link_to admin_item_path(item.id) do %>
+    <div><%= item.user.last_name %><%= item.user.first_name %></div>
+    <div><%= item.name %></div>
+    <div><%= item.title %></div>
+    <div><%= item.body %></div>
+  <% end %>
+<% end %>

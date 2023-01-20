@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Osouzizukinotudoi</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
     <!--%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %-->
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,10 +17,10 @@
 
 <!--ここからヘッダー部分-->
   <body class="d-flex flex-column vh-100">
-    <header class="shadow-sm">
+    <header class="shadow-sm "style="background:rgb(127,255,127); position: width:100%; z-index:10;">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <%#= image_tag('ヘッダー用ロゴ.png') %>
+          <%= image_tag ('logo.png'), size:"80x80",class:"rounded-circle logo" %>
           <h4 class="logo">
             <%= link_to "お掃除好きの集い", root_path, class: 'nav-link text-dark' %></h4>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -56,8 +60,16 @@
         </div>
       </nav>
     </header>
-    <%= yield %>
-    <footer>
+
+    <div class="pb-5" style="background: rgb(234,255,234); rgba(auto); padding-top:auto; min-height:auto;">
+      <%= flash[:notice] %>
+      <%= yield %>
+    </div>
+
+    <footer class="text-center pt-2 pb-2" style="background:rgb(127,255,127);">
+      <small>&copy; osouzizukinotudoi All Right Reserved</small>
     </footer>
+
+
   </body>
 </html>
