@@ -5,16 +5,19 @@ class Public::ItemsController < ApplicationController
   def index
     @items = Item.all
     @item = Item.new
+
     #byebug
   end
 
   def show
     @item = Item.find(params[:id])
     @item_new = Item.new
-    #@item_comment = ItemComment.new
+    @item_comment = Comment.new
   end
 
   def new
+    @items = Item.all
+    @item = Item.new
   end
 
   def destroy
@@ -50,6 +53,16 @@ class Public::ItemsController < ApplicationController
 
   def seae
   end
+
+
+ def search
+  @item = Item.new
+  @items = Item.search(params[:keyword])
+  @keyword = params[:keyword]
+  render "index"
+ end
+
+
 
 
   private

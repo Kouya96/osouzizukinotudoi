@@ -7,6 +7,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+   <%= stylesheet_link_tag "application.css", media: "all", 'data-turbolinks-track': "reload" %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
@@ -17,7 +18,7 @@
 
 <!--ここからヘッダー部分-->
   <body class="d-flex flex-column vh-100">
-    <header class="shadow-sm "style="background:rgb(127,255,127); position: width:100%; z-index:10;">
+    <header class="shadow-sm "style="background:rgb(1,154,102); position: width:100%; z-index:10;">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <%= image_tag ('logo.png'), size:"80x80",class:"rounded-circle logo" %>
@@ -33,26 +34,28 @@
 
               <!--会員ログインしているとき-->
               <% if user_signed_in? %>
-                  <p><%= current_user.first_name %>さんでログイン中</p>
-                  <li><%= link_to "マイページ", public_user_path(current_user.id), class: 'nav-link text-dark' %></li><!--マイページへのリンク-->
-                  <li><%= link_to "商品一覧", public_items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
-                  <li><%= link_to "ログアウト", destroy_user_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
+                  <p><%= current_user.last_name %><%= current_user.first_name %>さんでログイン中</p>
 
-　　　　　　　<!--管理者ログインしているとき-->
+                  <li><%= link_to "マイページ", public_user_path(current_user.id), class: 'mypage nav-link text-dark' %></li><!--マイページへのリンク-->
+                  <li><%= link_to "商品一覧", public_items_path, class: 'items nav-link text-dark' %></li><!--商品一覧へのリンク-->
+                  <li><%= link_to "ログアウト", destroy_user_session_path, class: ' logout nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
+
+              <!--管理者ログインしているとき-->
               <% elsif admin_signed_in? %>
-                  <li><%= link_to "管理者トップ画面", admin_homes_top_path, class: 'nav-link text-dark' %></li>
-                  <li><%= link_to "会員一覧", admin_users_path, class: 'nav-link text-dark' %></li><!--会員一覧リンク-->
-                  <li><%= link_to "投稿履歴一覧", admin_items_path, class: 'nav-link text-dark' %></li><!--注文履歴一覧リンク-->
-                  <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></li><!--ジャンル一覧リンク-->
-                  <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'nav-link text-dark', method: :delete %></li>
+              
+                  <li><%= link_to "管理者トップ画面", admin_homes_top_path, class: 'admintop nav-link text-dark' %></li>
+                  <li><%= link_to "会員一覧", admin_users_path, class: 'user nav-link text-dark' %></li><!--会員一覧リンク-->
+                  <li><%= link_to "投稿履歴一覧", admin_items_path, class: ' post nav-link text-dark' %></li><!--注文履歴一覧リンク-->
+                  <li><%= link_to "ジャンル一覧", admin_genres_path, class: ' genre nav-link text-dark' %></li><!--ジャンル一覧リンク-->
+                  <li><%= link_to "ログアウト", destroy_admin_session_path, class: ' logout nav-link text-dark', method: :delete %></li>
 
-　　　　　　　<!--ログインしていないとき-->
+              <!--ログインしていないとき-->
               <% else %>
-                  <li><%= link_to "About", about_path, 'data-turbolinks': false, class: 'nav-link text-dark' %></li><!--aboutリンク-->
-                  <li><%= link_to "商品一覧", public_items_path, class: 'nav-link text-dark' %></li><!--商品一覧リンク-->
-                  <li><%= link_to "新規会員登録", new_user_registration_path, class: 'nav-link text-dark' %></li><!--新規登録リンク-->
-                  <Li><%= link_to 'ゲストログイン（閲覧用）', public_users_guest_sign_in_path, class: 'nav-link text-dark', method: :post %></Li>
-                  <li><%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %></li><!--ログイン画面リンク-->
+                  <li><%= link_to "About", about_path, 'data-turbolinks': false, class: ' about nav-link text-dark' %></li><!--aboutリンク-->
+                  <li><%= link_to "商品一覧", public_items_path, class: 'items nav-link text-dark' %></li><!--商品一覧リンク-->
+                  <li><%= link_to "新規会員登録", new_user_registration_path, class: 'new nav-link text-dark' %></li><!--新規登録リンク-->
+                  <Li><%= link_to 'ゲストログイン（閲覧用）', public_users_guest_sign_in_path, class: ' guest nav-link text-dark', method: :post %></Li>
+                  <li><%= link_to "ログイン", new_user_session_path, class: ' login nav-link text-dark' %></li><!--ログイン画面リンク-->
               <% end %>
 
             </ul>
@@ -61,12 +64,12 @@
       </nav>
     </header>
 
-    <div class="pb-5" style="background: rgb(234,255,234); rgba(auto); padding-top:auto; min-height:auto;">
+    <div class="pb-5" style="background: rgba(auto); padding-top:auto; min-height:auto;">
       <%= flash[:notice] %>
       <%= yield %>
     </div>
 
-    <footer class="text-center pt-2 pb-2" style="background:rgb(127,255,127);">
+    <footer class="text-center pt-2 pb-2" style="background:rgb(1,154,102);">
       <small>&copy; osouzizukinotudoi All Right Reserved</small>
     </footer>
 
