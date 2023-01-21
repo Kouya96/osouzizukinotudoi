@@ -5,14 +5,14 @@
 
         <td>
           <%= link_to public_user_path(comment.user) do %>
-            <%= image_tag comment.user.get_profile_image, size: "100x100" %><br>
-            <%= comment.user.last_name %>
+            <%= image_tag comment.user.get_profile_image, size: "60x60" %><br>
+            <%= comment.user.last_name %><%= comment.user.first_name %>
           <% end %>
         </td>
-        <td><%= comment.comment %></td>
+        <td class= balloon-008 ><%= comment.comment %></td>
         <td>
           <% if comment.user == current_user %>
-            <%= link_to "Destroy", public_item_comment_path(item, comment), method: :delete, class: "btn btn-danger pull-right" %>
+            <%= link_to "削除する", public_item_comment_path(item, comment), method: :delete, class: "btn btn-danger pull-right" %>
           <% end %>
         </td>
       </tr>

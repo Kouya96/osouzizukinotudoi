@@ -11,6 +11,10 @@ class Public::Users::SessionsController < Devise::SessionsController
   end
 end
 
+def new
+end
+
+
   # GET /resource/sign_in
   # def new
   #   super

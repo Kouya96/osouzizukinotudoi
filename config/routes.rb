@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  #devise_for :admins
-  #devise_for :admins
+
 
  # 顧客用
 # URL /customers/sign_in ...
@@ -18,6 +17,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   root to: "public/homes#top"
   get 'about' => 'public/homes#about', as: 'about'
+
+
+  get 'search' => 'public/items#search'
+
 
   #ゲストログイン
   devise_scope :user do

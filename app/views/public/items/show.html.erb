@@ -4,7 +4,7 @@
     <div class='col-md-3'>
 
       <% if current_user.present? %>
-      <h2>ユーザー情報</h2>
+      <h3 class="heading-015" >ユーザー情報</h3>
       <%= render 'public/users/info', user: current_user %>
       <% end %>
 
@@ -14,7 +14,7 @@
 
 
     <div class='col-md-8 offset-md-1'>
-  		<h2>オススメ商品の詳細</h2>
+  		<h3 class= "heading-015" >オススメ商品の詳細</h3>
 
   		<table class='table'>
         <thead>
@@ -56,11 +56,13 @@
             <th>～実際に使ってみた感想～</th>
         </thead>
 
+       
         <tbody>
           <tr>
-            <td><%= @item.body %></td>
+            <td class="balloon-004"><%= @item.body %></td>
           </tr>
         </tbody>
+        
       </table>
 
       <% if @item.user == current_user %>
@@ -68,8 +70,22 @@
             <td><%= link_to '削除する', public_item_path(@item), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
       <% end %>
 
-      <%= render "public/comments/index", item: @item %>
-      <%= render "public/comments/form", item: @item, comment: @item_comment %>
+
+    <p>
+     <table class='table'>
+        <thead>
+          <tr>
+            <th>コメント一覧</th>
+        </thead>
+
+        <tbody>
+          <tr>
+            <%= render "public/comments/index", item: @item %>
+            <%= render "public/comments/form", item: @item, comment: @item_comment %>
+          </tr>
+       </tbody>
+      </table>
+    </p>
 
     </div>
   </div>
