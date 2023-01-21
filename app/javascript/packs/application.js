@@ -8,6 +8,23 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+/*Bootstrapの導入*/
+import "jquery";
+import "popper.js";
+import "bootstrap";
+import "../stylesheets/application" 
+
+/*FontAwesomeの導入*/
+import '@fortawesome/fontawesome-free/js/all'
+
+// 星評価の導入
+import Raty from "raty.js"
+window.raty = function(elem,opt) {
+  let raty =  new Raty(elem,opt)
+  raty.init();
+  return raty;
+}
+
 Rails.start()
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()

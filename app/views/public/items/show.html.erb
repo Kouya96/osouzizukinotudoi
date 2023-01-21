@@ -1,2 +1,92 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class='container'>
+  <div class='row'>
+
+    <div class='col-md-3'>
+
+      <% if current_user.present? %>
+      <h3 class="heading-015" >ユーザー情報</h3>
+      <%= render 'public/users/info', user: current_user %>
+      <% end %>
+
+      <!--<h2 class="mt-3"></h2>-->
+      <!--<%#= render 'public/items/form' %>-->
+    </div>
+
+
+    <div class='col-md-8 offset-md-1'>
+  		<h3 class= "heading-015" >オススメ商品の詳細</h3>
+
+  		<table class='table'>
+        <thead>
+          <tr>
+            <th>掃除箇所</th>
+            <th>タイトル</th>
+            <th>オススメ商品名</th>
+            <th>★評価</th>
+         </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><%= @item.genre.name %></td>
+            <td><%= @item.title %></td>
+            <td><%= @item.name %></td>
+
+        <td><div id=<%= "view_star_#{@item.id}" %> data-score="<%= @item.star %>"></div></td>
+        <script>
+          // scriptファイルをどのidの部分に配置するかを指定
+          $("<%= "#view_star_#{@item.id}" %>").empty();
+          var r_elem = document.querySelector("<%= "#view_star_#{@item.id}" %>");
+          var r_opt = {
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          readOnly: true,
+          };
+           raty(r_elem,r_opt);
+        </script>
+
+          </tr>
+        </tbody>
+      </table>
+
+
+     <table class='table'>
+        <thead>
+          <tr>
+            <th>～実際に使ってみた感想～</th>
+        </thead>
+
+       
+        <tbody>
+          <tr>
+            <td class="balloon-004"><%= @item.body %></td>
+          </tr>
+        </tbody>
+        
+      </table>
+
+      <% if @item.user == current_user %>
+            <td><%= link_to '編集する', edit_public_item_path(@item), class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to '削除する', public_item_path(@item), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+      <% end %>
+
+
+    <p>
+     <table class='table'>
+        <thead>
+          <tr>
+            <th>コメント一覧</th>
+        </thead>
+
+        <tbody>
+          <tr>
+            <%= render "public/comments/index", item: @item %>
+            <%= render "public/comments/form", item: @item, comment: @item_comment %>
+          </tr>
+       </tbody>
+      </table>
+    </p>
+
+    </div>
+  </div>
+</div>

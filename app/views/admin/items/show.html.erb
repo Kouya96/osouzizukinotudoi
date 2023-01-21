@@ -1,2 +1,7 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<div><%= @item.user.last_name %><%= @item.user.first_name %></div>
+    <div><%= @item.name %></div>
+    <div><%= @item.title %></div>
+    <div><%= @item.body %></div>
+
+<%= link_to "投稿を削除する", admin_item_path, method: :delete, class: "btn btn-danger" %>
+

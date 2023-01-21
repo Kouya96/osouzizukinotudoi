@@ -1,3 +1,35 @@
 // Place all the styles related to the public::comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.balloon-008 {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 300px;
+    margin-left: 15px;
+    padding: .8em 1.2em;
+    border: 3px solid #39ea56;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333333;
+}
+
+.balloon-008::before,
+.balloon-008::after {
+    position: absolute;
+    left: -15px;
+    width: 15px;
+    height: 30px;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    content: '';
+}
+
+.balloon-008::before {
+    background-color: #39ea56;
+}
+
+.balloon-008::after {
+    left: -11px;
+    background-color: #fff;
+}

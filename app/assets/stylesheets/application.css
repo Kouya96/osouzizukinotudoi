@@ -13,3 +13,425 @@
  *= require_tree .
  *= require_self
  */
+
+
+h1 {
+  margin: 20px 20px 10px;
+  font-size: 85%;
+}
+
+
+
+
+/*ここからヘッダー用*/
+
+button {
+  margin: 0 20px 40px;
+  padding: 1em 2em;
+  border: none;
+  box-sizing:border-box;
+  width:180px;
+  display: inline-block;
+  font-size: 114%;
+  position: relative;
+  cursor: pointer;
+}
+
+
+/*マイページリンク用*/
+.mypage {
+  border: 3px solid rgb(193,164,112);
+  background-color: #FFF;
+  color: rgb(238,139,103);
+  -webkit-perspective: 300px;
+  -webkit-transform-style: preserve-3d;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  overflow:hidden;
+}
+.mypage::after {
+  padding: 1em 2em;
+  box-sizing:border-box;
+  content: 'マイページ';
+  display:block;
+  width:174px;
+  height:100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  background-color:rgb(156,94,49);
+  -webkit-transform-origin: 50% 0;
+  -webkit-transform: rotate(-90deg);
+  transform-origin: 50% 0;
+  transform: rotate(-90deg);
+  opacity: 0;
+}
+.mypage:hover::after {
+  animation: purann2 1s linear 0s 1 forwards;
+  opacity: 1;
+}
+
+
+/*商品一覧リンク用*/
+.items {
+  border: 3px solid rgb(193,164,112);
+  background-color: #FFF;
+  color: rgb(238,139,103);
+  -webkit-perspective: 300px;
+  -webkit-transform-style: preserve-3d;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  overflow:hidden;
+}
+.items::after {
+  padding: 1em 2em;
+  box-sizing:border-box;
+  content: '商品一覧';
+  display:block;
+  width:174px;
+  height:100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  background-color:rgb(156,94,49);
+  -webkit-transform-origin: 50% 0;
+  -webkit-transform: rotate(-90deg);
+  transform-origin: 50% 0;
+  transform: rotate(-90deg);
+  opacity: 0;
+}
+.items:hover::after {
+  animation: purann2 1s linear 0s 1 forwards;
+  opacity: 1;
+}
+
+
+/*ログインリンク用*/
+.login {
+  border: 3px solid rgb(193,164,112);
+  background-color: #FFF;
+  color: rgb(15,139,103);
+  -webkit-perspective: 300px;
+  -webkit-transform-style: preserve-3d;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  overflow:hidden;
+}
+.login::after {
+  padding: 1em 2em;
+  box-sizing:border-box;
+  content: 'ログイン';
+  display:block;
+  width:174px;
+  height:100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  background-color:rgb(156,94,49);
+  -webkit-transform-origin: 50% 0;
+  -webkit-transform: rotate(-90deg);
+  transform-origin: 50% 0;
+  transform: rotate(-90deg);
+  opacity: 0;
+}
+.login:hover::after {
+  animation: purann2 1s linear 0s 1 forwards;
+  opacity: 1;
+}
+
+
+/*ログアウトリンク用*/
+.logout {
+  border: 3px solid rgb(193,164,112);
+  background-color: #FFF;
+  color: rgb(15,139,103);
+  -webkit-perspective: 300px;
+  -webkit-transform-style: preserve-3d;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  overflow:hidden;
+}
+.logout::after {
+  padding: 1em 2em;
+  box-sizing:border-box;
+  content: 'ログアウト';
+  display:block;
+  width:174px;
+  height:100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  background-color:rgb(156,94,49);
+  -webkit-transform-origin: 50% 0;
+  -webkit-transform: rotate(-90deg);
+  transform-origin: 50% 0;
+  transform: rotate(-90deg);
+  opacity: 0;
+}
+.logout:hover::after {
+  animation: purann2 1s linear 0s 1 forwards;
+  opacity: 1;
+}
+
+
+/*新規会員リンク用*/
+.new {
+  border: 3px solid rgb(193,164,112);
+  background-color: #FFF;
+  color: rgb(15,139,103);
+  -webkit-perspective: 300px;
+  -webkit-transform-style: preserve-3d;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  overflow:hidden;
+}
+.new::after {
+  padding: 1em 2em;
+  box-sizing:border-box;
+  content: '新規会員登録';
+  display:block;
+  width:174px;
+  height:100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  background-color:rgb(156,94,49);
+  -webkit-transform-origin: 50% 0;
+  -webkit-transform: rotate(-90deg);
+  transform-origin: 50% 0;
+  transform: rotate(-90deg);
+  opacity: 0;
+}
+.new:hover::after {
+  animation: purann2 1s linear 0s 1 forwards;
+  opacity: 1;
+}
+
+
+/*aboutリンク用*/
+.about {
+  border: 3px solid rgb(193,164,112);
+  background-color: #FFF;
+  color: rgb(15,139,103);
+  -webkit-perspective: 300px;
+  -webkit-transform-style: preserve-3d;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  overflow:hidden;
+}
+.about::after {
+  padding: 1em 2em;
+  box-sizing:border-box;
+  content: 'about';
+  display:block;
+  width:174px;
+  height:100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  background-color:rgb(156,94,49);
+  -webkit-transform-origin: 50% 0;
+  -webkit-transform: rotate(-90deg);
+  transform-origin: 50% 0;
+  transform: rotate(-90deg);
+  opacity: 0;
+}
+.about:hover::after {
+  animation: purann2 1s linear 0s 1 forwards;
+  opacity: 1;
+}
+
+
+/*ゲストログインリンク用*/
+.guest {
+  border: 3px solid rgb(193,164,112);
+  background-color: #FFF;
+  color: rgb(15,139,103);
+  -webkit-perspective: 300px;
+  -webkit-transform-style: preserve-3d;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  overflow:hidden;
+}
+.guest::after {
+  padding: 1em 2em;
+  box-sizing:border-box;
+  content: 'ゲストログイン（閲覧用）';
+  display:block;
+  width:174px;
+  height:100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  background-color:rgb(156,94,49);
+  -webkit-transform-origin: 50% 0;
+  -webkit-transform: rotate(-90deg);
+  transform-origin: 50% 0;
+  transform: rotate(-90deg);
+  opacity: 0;
+}
+.guest:hover::after {
+  animation: purann2 1s linear 0s 1 forwards;
+  opacity: 1;
+}
+
+
+/*ここから管理者側ヘッダー用*/
+
+/*管理者トップ画面リンク用*/
+.admintop {
+  border: 3px solid rgb(193,164,112);
+  background-color: #FFF;
+  color: rgb(15,139,103);
+  -webkit-perspective: 300px;
+  -webkit-transform-style: preserve-3d;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  overflow:hidden;
+}
+.admintop::after {
+  padding: 1em 2em;
+  box-sizing:border-box;
+  content: '管理者トップ画面';
+  display:block;
+  width:174px;
+  height:100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  background-color:rgb(156,94,49);
+  -webkit-transform-origin: 50% 0;
+  -webkit-transform: rotate(-90deg);
+  transform-origin: 50% 0;
+  transform: rotate(-90deg);
+  opacity: 0;
+}
+.admintop:hover::after {
+  animation: purann2 1s linear 0s 1 forwards;
+  opacity: 1;
+}
+
+
+/*会員一覧リンク用*/
+.user {
+  border: 3px solid rgb(193,164,112);
+  background-color: #FFF;
+  color: rgb(15,139,103);
+  -webkit-perspective: 300px;
+  -webkit-transform-style: preserve-3d;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  overflow:hidden;
+}
+.user::after {
+  padding: 1em 2em;
+  box-sizing:border-box;
+  content: '会員一覧';
+  display:block;
+  width:174px;
+  height:100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  background-color:rgb(156,94,49);
+  -webkit-transform-origin: 50% 0;
+  -webkit-transform: rotate(-90deg);
+  transform-origin: 50% 0;
+  transform: rotate(-90deg);
+  opacity: 0;
+}
+.user:hover::after {
+  animation: purann2 1s linear 0s 1 forwards;
+  opacity: 1;
+}
+
+
+/*投稿履歴一覧リンク用*/
+.post {
+  border: 3px solid rgb(193,164,112);
+  background-color: #FFF;
+  color: rgb(15,139,103);
+  -webkit-perspective: 300px;
+  -webkit-transform-style: preserve-3d;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  overflow:hidden;
+}
+.post::after {
+  padding: 1em 2em;
+  box-sizing:border-box;
+  content: '投稿履歴一覧';
+  display:block;
+  width:174px;
+  height:100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  background-color:rgb(156,94,49);
+  -webkit-transform-origin: 50% 0;
+  -webkit-transform: rotate(-90deg);
+  transform-origin: 50% 0;
+  transform: rotate(-90deg);
+  opacity: 0;
+}
+.post:hover::after {
+  animation: purann2 1s linear 0s 1 forwards;
+  opacity: 1;
+}
+
+
+/*ジャンル一覧*/
+.genre {
+  border: 3px solid rgb(193,164,112);
+  background-color: #FFF;
+  color: rgb(15,139,103);
+  -webkit-perspective: 300px;
+  -webkit-transform-style: preserve-3d;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  overflow:hidden;
+}
+.genre::after {
+  padding: 1em 2em;
+  box-sizing:border-box;
+  content: '';
+  display:block;
+  width:174px;
+  height:100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  background-color:rgb(156,94,49);
+  -webkit-transform-origin: 50% 0;
+  -webkit-transform: rotate(-90deg);
+  transform-origin: 50% 0;
+  transform: rotate(-90deg);
+  opacity: 0;
+}
+.genre:hover::after {
+  animation: purann2 1s linear 0s 1 forwards;
+  opacity: 1;
+}
+
+
+
+@keyframes purann2 {
+    0% { transform: rotate(-90deg); }
+   25% { transform: rotate(20deg); }
+   50% { transform: rotate(-10deg); }
+   75% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+

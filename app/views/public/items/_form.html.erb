@@ -1,0 +1,61 @@
+<%= form_with model: [:public, @item],local:true do |f| %>
+
+<div class="container">
+
+
+<div class="col-lg-3">
+  <div class="form-group">
+    <%= f.label :清掃箇所 %>
+    <%= f.select :genre_id, Genre.all.collect{ |g| [g.name, g.id] }, {include_blank: '選択してください'}, {class: 'form-control'} %>
+  </div>
+</div>
+
+<div class="col-lg-3">
+  <div class="form-group">
+    <%= f.label :投稿タイトル %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="col-lg-3">
+  <div class="form-group">
+    <%= f.label :オススメ商品名 %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="col-lg-3">
+  <div class="form-group">
+    <%= f.label :評価 %>
+    <div id="post_raty"></div>
+        <script>
+        // scriptファイルをどのidの部分に配置するかを指定
+        $("#post_raty").empty();
+        let elem = document.querySelector('#post_raty');
+        let opt = {
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        scoreName: 'item[star]'
+        };
+         raty(elem,opt);
+        </script></td>
+  </div>
+</div>
+
+<div class="col-lg-3">
+  <div class="form-group">
+    <%= f.label :実際使ってみた感想 %>
+    <%= f.text_area :body, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="col-lg-3">
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-success' %>
+  </div>
+</div>
+
+<% end %>
+
+</div>
+</div>
