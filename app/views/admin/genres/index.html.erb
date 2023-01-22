@@ -1,1 +1,29 @@
-ジャンル一覧画面
+<h2>ジャンル一覧画面</h2>
+
+<%= form_with model: [:admin, @genre] do |f| %>
+
+  <div class="row">
+
+    <div class="col-lg-3">
+      <div class="form-group">
+        <%= f.label :ジャンル %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
+
+
+    <div class="col-lg-3">
+      <div class="form-group">
+        <%= f.submit class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<% @genres.each do |genre| %>
+<%= link_to admin_genres_path(genre.id) do %>
+    <div><%= genre.name %> <%= link_to admin_genre_path(genre.id), method: :delete, data: { confirm: "【確認】ジャンルを削除してもよろしいですか？" } do %>x<% end %></div>
+
+  <% end %>
+<% end %>

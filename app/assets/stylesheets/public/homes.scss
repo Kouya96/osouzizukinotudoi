@@ -1,3 +1,52 @@
 // Place all the styles related to the public::homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// 見出し
+.heading-029 {
+    display: inline-block;
+    position: relative;
+    margin: calc(3.5em / 2) 0 calc(3.5em / 4) calc(3.5em / 2);
+    color: #333333;
+    line-height: 1;
+}
+
+.heading-029::before {
+    position: absolute;
+    bottom: calc(-3.5em / 4);
+    left: calc(-3.5em / 2);
+    z-index: -1;
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    background: #8ef28c;
+    content: '';
+}
+
+
+
+// トップ画面の見出し
+.heading-016 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333333;
+}
+
+.heading-016::before,
+.heading-016::after {
+    width: 3px;
+    height: 40px;
+    background-color: #52e713;
+    content: '';
+}
+
+.heading-016::before {
+    transform: rotate(-35deg);
+    margin-right: 30px;
+}
+
+.heading-016::after {
+    transform: rotate(35deg);
+    margin-left: 30px;
+}
