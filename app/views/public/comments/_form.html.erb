@@ -1,4 +1,10 @@
+<!--コメント入力のフォーム部分-->
 <%= form_with model: comment, url: public_item_comments_path(item), local: true do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに入力してください", class: "w-100" %>
-  <%= f.submit "送信する", class: "btn btn-primary" %>
+  <% if current_user.email == "guest@example.com" %>
+    <%= f.text_area :comment, {disabled: true, rows:'5',placeholder: "コメントをここに入力してください", class: "w-100"} %>
+    <%= f.submit "送信する", {disabled: true, class: "btn btn-primary"} %>
+  <% else %>
+    <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに入力してください", class: "w-100" %>
+    <%= f.submit "送信する", class: "btn btn-primary" %>
+  <% end %>
 <% end %>

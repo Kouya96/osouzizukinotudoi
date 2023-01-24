@@ -1,20 +1,19 @@
+<!--投稿詳細画面-->
 <div class='container'>
   <div class='row'>
 
     <div class='col-md-3'>
 
       <% if current_user.present? %>
-      <h3 class="heading-015" >ユーザー情報</h3>
+      <h3 class="headline" >ユーザー情報</h3>
       <%= render 'public/users/info', user: current_user %>
       <% end %>
 
-      <!--<h2 class="mt-3"></h2>-->
-      <!--<%#= render 'public/items/form' %>-->
     </div>
 
 
     <div class='col-md-8 offset-md-1'>
-  		<h3 class= "heading-015" >オススメ商品の詳細</h3>
+  		<h3 class= "headline" >オススメ商品の詳細</h3>
 
   		<table class='table'>
         <thead>
@@ -56,13 +55,13 @@
             <th>～実際に使ってみた感想～</th>
         </thead>
 
-       
+
         <tbody>
           <tr>
-            <td class="balloon-004"><%= @item.body %></td>
+            <td class="balloon"><%= @item.body %></td>
           </tr>
         </tbody>
-        
+
       </table>
 
       <% if @item.user == current_user %>

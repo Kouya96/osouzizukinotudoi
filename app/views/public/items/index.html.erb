@@ -1,18 +1,19 @@
+<!--投稿一覧画面-->
 <div class='container px-5 px-sm-0'>
   <%= render 'layouts/errors', obj: @item %>
-
   <div class='row'>
     <div class='col-md-3'>
 
       <% if current_user.present? %>
-      <h3 class="heading-015">ユーザー情報</h3>
+      <h3 class="headline">ユーザー情報</h3>
       <%= render 'public/users/info', user: current_user %>
       <% end %>
 
-      <% if current_user.present? %>
-      <%= link_to "レビュー新規投稿", new_public_item_path, class: "btn btn-primary" %>
+      <% if current_user.present? && current_user.email != "guest@example.com" %>
+        <%= link_to "レビュー新規投稿", new_public_item_path, class: "btn btn-primary btn-block" %>
+      <% else %>
+        <%= link_to "レビュー新規投稿", "javascript:void(0)", class: "btn btn-secondary btn-block" %>
       <% end %>
-
 
     </div>
 
@@ -20,26 +21,20 @@
       <% if @keyword %>
       <%= @keyword %>の検索結果
       <% else %>
-      <h3 class="heading-015">★オススメ商品一覧★</h3>
+      <h3 class="heading-029">★オススメ商品一覧★</h3>
       <% end %>
 
-
-       <!--投稿検索機能-->
-     <div class="search-form">
-        <%= form_with url: search_path, method: :get, local: true do |f| %>
-        <%= f.text_field :keyword, value: @keyword %>
-        <%= f.submit "検索" %>
-        <% end %>
+    <!--投稿検索機能-->
+    <div class="search-form">
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :keyword, value: @keyword ,placeholder: "ここに掃除箇所を入力" %>
+      <%= f.submit "検索" %>
+      <% end %>
     </div>
-     <!--投稿検索機能ここまで-->
-
+    <!--投稿検索機能ここまで-->
       <br>
       <%= render 'index', items: @items%>
     </div>
-
-
-
-
 
   </div>
 </div>

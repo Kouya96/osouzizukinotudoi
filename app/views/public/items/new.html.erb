@@ -1,4 +1,7 @@
-<% if current_user.present? %>
-      <h2 class="mt-3">新規投稿画面</h2>
-      <%= render 'form', item: @item %>
+<!--新規投稿画面-->
+<div class='container'>
+      <% if current_user.present? %>
+        <h2 class="headline">新規投稿画面</h2>
+        <%= render 'form', item: @item %>
       <% end %>
+</div>
