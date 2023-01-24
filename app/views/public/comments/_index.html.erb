@@ -1,3 +1,4 @@
+<!--コメント一覧の部分-->
 <table>
   <tbody>
       <% item.comments.each do |comment| %>
@@ -9,7 +10,8 @@
             <%= comment.user.last_name %><%= comment.user.first_name %>
           <% end %>
         </td>
-        <td class= balloon-008 ><%= comment.comment %></td>
+        <!--コメントの部分を吹き出しにするCSS-->
+        <td class= fukidasi ><%= comment.comment %></td>
         <td>
           <% if comment.user == current_user %>
             <%= link_to "削除する", public_item_comment_path(item, comment), method: :delete, class: "btn btn-danger pull-right" %>

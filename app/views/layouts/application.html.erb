@@ -10,8 +10,6 @@
    <%= stylesheet_link_tag "application.css", media: "all", 'data-turbolinks-track': "reload" %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-
-    <!--%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %-->
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -22,55 +20,55 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <%= image_tag ('logo.png'), size:"80x80",class:"rounded-circle logo" %>
-          <h4 class="logo">
-            <%= link_to "お掃除好きの集い", root_path, class: 'nav-link text-dark' %></h4>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            <h4 class="logo">
+              <%= link_to "お掃除好きの集い", root_path, class: 'nav-link text-dark' %></h4>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
               aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
 
 
-              <!--会員ログインしているとき-->
-              <% if user_signed_in? %>
-                  <p><%= current_user.last_name %><%= current_user.first_name %>さんでログイン中</p>
+                <!--会員ログインしているとき-->
+                  <% if user_signed_in? %>
+                    <p><%= current_user.last_name %><%= current_user.first_name %>さんでログイン中</p>
 
-                  <li style="margin-left: 10px;"><%= link_to "マイページ", public_user_path(current_user.id), class: 'hedda-button nav-link text-dark' %></li><!--マイページへのリンク-->
-                  <li style="margin-left: 10px;"><%= link_to "投稿一覧", public_items_path, class: 'hedda-button nav-link text-dark' %></li><!--商品一覧へのリンク-->
-                  <li style="margin-left: 10px;"><%= link_to "ログアウト", destroy_user_session_path, class: 'hedda-button nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
+                    <li style="margin-left: 10px;"><%= link_to "マイページ", public_user_path(current_user.id), class: 'hedda-button nav-link text-dark' %></li><!--マイページへのリンク-->
+                    <li style="margin-left: 10px;"><%= link_to "投稿一覧", public_items_path, class: 'hedda-button nav-link text-dark' %></li><!--商品一覧へのリンク-->
+                    <li style="margin-left: 10px;"><%= link_to "ログアウト", destroy_user_session_path, class: 'hedda-button nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
 
-              <!--管理者ログインしているとき-->
-              <% elsif admin_signed_in? %>
+                <!--管理者ログインしているとき-->
+                  <% elsif admin_signed_in? %>
 
-                  <li style="margin-left: 10px;"><%= link_to "管理者トップ画面", admin_homes_top_path, class: 'hedda-button nav-link text-dark' %></li>
-                  <li style="margin-left: 10px;"><%= link_to "会員一覧", admin_users_path, class: 'hedda-button nav-link text-dark' %></li><!--会員一覧リンク-->
-                  <li style="margin-left: 10px;"><%= link_to "投稿履歴一覧", admin_items_path, class: 'hedda-button nav-link text-dark' %></li><!--注文履歴一覧リンク-->
-                  <li style="margin-left: 10px;"><%= link_to "ジャンル一覧", admin_genres_path, class: 'hedda-button nav-link text-dark' %></li><!--ジャンル一覧リンク-->
-                  <li style="margin-left: 10px;"><%= link_to "ログアウト", destroy_admin_session_path, class: 'hedda-button nav-link text-dark', method: :delete %></li>
+                    <li style="margin-left: 10px;"><%= link_to "管理者トップ画面", admin_homes_top_path, class: 'hedda-button nav-link text-dark' %></li>
+                    <li style="margin-left: 10px;"><%= link_to "会員一覧", admin_users_path, class: 'hedda-button nav-link text-dark' %></li><!--会員一覧リンク-->
+                    <li style="margin-left: 10px;"><%= link_to "投稿履歴一覧", admin_items_path, class: 'hedda-button nav-link text-dark' %></li><!--注文履歴一覧リンク-->
+                    <li style="margin-left: 10px;"><%= link_to "ジャンル一覧", admin_genres_path, class: 'hedda-button nav-link text-dark' %></li><!--ジャンル一覧リンク-->
+                    <li style="margin-left: 10px;"><%= link_to "ログアウト", destroy_admin_session_path, class: 'hedda-button nav-link text-dark', method: :delete %></li>
 
-              <!--ログインしていないとき-->
-              <% else %>
-                  <li style="margin-left: 10px;"><%= link_to "About", about_path, 'data-turbolinks': false, class: 'hedda-button nav-link text-dark' %></li><!--aboutリンク-->
-                  <li style="margin-left: 10px;"><%= link_to "新規会員登録", new_user_registration_path, class: 'hedda-button nav-link text-dark' %></li><!--新規登録リンク-->
-                  <Li style="margin-left: 10px;"><%= link_to 'ゲストログイン（閲覧用）', public_users_guest_sign_in_path, class: 'hedda-button nav-link text-dark', method: :post %></Li>
-                  <li style="margin-left: 10px;"><%= link_to "ログイン", new_user_session_path, class: 'hedda-button nav-link text-dark' %></li><!--ログイン画面リンク-->
-              <% end %>
+                 <!--ログインしていないとき-->
+                  <% else %>
+                    <li style="margin-left: 10px;"><%= link_to "About", about_path, 'data-turbolinks': false, class: 'hedda-button nav-link text-dark' %></li><!--aboutリンク-->
+                    <li style="margin-left: 10px;"><%= link_to "新規会員登録", new_user_registration_path, class: 'hedda-button nav-link text-dark' %></li><!--新規登録リンク-->
+                    <Li style="margin-left: 10px;"><%= link_to 'ゲストログイン（閲覧用）', public_users_guest_sign_in_path, class: 'hedda-button nav-link text-dark', method: :post %></Li>
+                    <li style="margin-left: 10px;"><%= link_to "ログイン", new_user_session_path, class: 'hedda-button nav-link text-dark' %></li><!--ログイン画面リンク-->
+                  <% end %>
 
-            </ul>
-          </div>
+                </ul>
+              </div>
         </div>
       </nav>
     </header>
 
-    <div class="main" style="min-height:auto;">
-      <%= flash[:notice] %>
-      <%= yield %>
-    </div>
+      <div class="main" style="min-height:auto;">
+        <%= flash[:notice] %>
+        <%= yield %>
+      </div>
 
-    <footer class="text-center pt-2 pb-2" style="background:rgb(1,154,102);">
-      <small>&copy; osouzizukinotudoi All Right Reserved</small>
-    </footer>
+      <footer class="text-center pt-2 pb-2" style="background:rgb(1,154,102);">
+        <small>&copy; osouzizukinotudoi All Right Reserved</small>
+      </footer>
 
 
   </body>

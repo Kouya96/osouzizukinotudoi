@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 // 見出し
-.heading-029 {
+.headline {
     display: inline-block;
     position: relative;
     margin: calc(3.5em / 2) 0 calc(3.5em / 4) calc(3.5em / 2);
@@ -11,7 +11,7 @@
     line-height: 1;
 }
 
-.heading-029::before {
+.headline::before {
     position: absolute;
     bottom: calc(-3.5em / 4);
     left: calc(-3.5em / 2);

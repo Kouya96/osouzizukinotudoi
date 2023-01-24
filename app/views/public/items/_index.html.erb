@@ -1,16 +1,18 @@
+<!--投稿内容部分の部分テンプレート-->
 <table class='table table-hover table-inverse'>
   <thead>
     <section>
-    <tr>
-      <th>掃除箇所</th>
-      <th>タイトル</th>
-      <th>オススメ商品名</th>
-      <th>★評価</th>
-      <th>詳細ページ</th>
-      <th colspan="3"></th>
-    </tr>
+      <tr>
+        <th>掃除箇所</th>
+        <th>タイトル</th>
+        <th>オススメ商品名</th>
+        <th>★評価</th>
+        <th>詳細ページ</th>
+        <th colspan="3"></th>
+      </tr>
     </section>
   </thead>
+  
   <tbody>
     <% items.each do |item| %>
       <tr>
@@ -18,26 +20,22 @@
         <td><%= item.title %></td>
         <td><%= item.name %></td>
 
-
         <td><div id=<%= "view_star_#{item.id}" %> data-score="<%= item.star %>"></div></td>
-        <script>
-          $("<%= "#view_star_#{item.id}" %>").empty();
-          // scriptファイルをどのidの部分に配置するかを指定
-          var r_elem = document.querySelector("<%= "#view_star_#{item.id}" %>");
-          var r_opt = {
-          starOff:  '<%= asset_path('star-off.png') %>',
-          starOn : '<%= asset_path('star-on.png') %>',
-          readOnly: true,
-          };
-           raty(r_elem,r_opt);
-        </script>
+          <script>
+            $("<%= "#view_star_#{item.id}" %>").empty();
+            var r_elem = document.querySelector("<%= "#view_star_#{item.id}" %>");
+            var r_opt = {
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            readOnly: true,
+            };
+            raty(r_elem,r_opt);
+          </script>
 
         <td><%= link_to "詳細", public_item_path(item) %></td>
-
         <td>コメント数: <%= item.comments.count %></td>
-
       </tr>
+      
     <% end %>
   </tbody>
 </table>
-
