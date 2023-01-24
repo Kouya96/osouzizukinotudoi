@@ -22,39 +22,3 @@
 /*  width:auto;*/
 /*  background-repeat: no-repeat;*/
 /*}*/
-
-
-
-.hedda-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    margin: 0 auto;
-    padding: .8em 2em;
-    border: none;
-    border-radius: 25px;
-    background-color: #b96927;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1em;
-}
-
-.hedda-button:hover {
-    animation: anima-button-041 2s linear infinite;
-}
-
-@keyframes anima-button-041 {
-    7% {
-        transform: translateY(-15px);
-    }
-    15% {
-        transform: translateY(0);
-    }
-    20% {
-        transform: translateY(-7px);
-    }
-    25% {
-        transform: translateY(0);
-    }
-}

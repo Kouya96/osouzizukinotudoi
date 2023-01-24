@@ -37,7 +37,7 @@
                   <p><%= current_user.last_name %><%= current_user.first_name %>さんでログイン中</p>
 
                   <li style="margin-left: 10px;"><%= link_to "マイページ", public_user_path(current_user.id), class: 'hedda-button nav-link text-dark' %></li><!--マイページへのリンク-->
-                  <li style="margin-left: 10px;"><%= link_to "商品一覧", public_items_path, class: 'hedda-button nav-link text-dark' %></li><!--商品一覧へのリンク-->
+                  <li style="margin-left: 10px;"><%= link_to "投稿一覧", public_items_path, class: 'hedda-button nav-link text-dark' %></li><!--商品一覧へのリンク-->
                   <li style="margin-left: 10px;"><%= link_to "ログアウト", destroy_user_session_path, class: 'hedda-button nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
 
               <!--管理者ログインしているとき-->
@@ -52,7 +52,6 @@
               <!--ログインしていないとき-->
               <% else %>
                   <li style="margin-left: 10px;"><%= link_to "About", about_path, 'data-turbolinks': false, class: 'hedda-button nav-link text-dark' %></li><!--aboutリンク-->
-                  <li style="margin-left: 10px;"><%= link_to "商品一覧", public_items_path, class: 'hedda-button nav-link text-dark' %></li><!--商品一覧リンク-->
                   <li style="margin-left: 10px;"><%= link_to "新規会員登録", new_user_registration_path, class: 'hedda-button nav-link text-dark' %></li><!--新規登録リンク-->
                   <Li style="margin-left: 10px;"><%= link_to 'ゲストログイン（閲覧用）', public_users_guest_sign_in_path, class: 'hedda-button nav-link text-dark', method: :post %></Li>
                   <li style="margin-left: 10px;"><%= link_to "ログイン", new_user_session_path, class: 'hedda-button nav-link text-dark' %></li><!--ログイン画面リンク-->

@@ -1,29 +1,35 @@
-<h2>ジャンル一覧画面</h2>
+<!--ジャンル一覧画面-->
+<div class="container">
+  <div class="col-xs-12">
+    <h3 class="headline">ジャンル一覧画面</h2>
 
-<%= form_with model: [:admin, @genre] do |f| %>
 
-  <div class="row">
+    <%= form_with model: [:admin, @genre] do |f| %>
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="form-group">
+            <%= f.text_field :name, class: 'form-control', placeholder: "ここに新しいジャンル名を入力で登録" %>
+          </div>
+        </div>
 
-    <div class="col-lg-3">
-      <div class="form-group">
-        <%= f.label :ジャンル %>
-        <%= f.text_field :name, class: 'form-control' %>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <%= f.submit "ジャンル作成する", class: 'btn btn-success' %>
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
 
+    <table class="table table-bordered table-condensed">
+      <div class="col-xs-2">
 
-    <div class="col-lg-3">
-      <div class="form-group">
-        <%= f.submit class: 'btn btn-success' %>
+        <% @genres.each do |genre| %>
+          <%= link_to admin_genres_path(genre.id) do %>
+            <div><%= genre.name %> <%= link_to admin_genre_path(genre.id), method: :delete, data: { confirm: "【確認】ジャンルを削除してもよろしいですか？" } do %><%= image_tag 'dust box.png' %><% end %></div>
+          <% end %>
+        <% end %>
       </div>
-    </div>
+    </table>
+
   </div>
-<% end %>
-
-
-<% @genres.each do |genre| %>
-<%= link_to admin_genres_path(genre.id) do %>
-    <div><%= genre.name %> <%= link_to admin_genre_path(genre.id), method: :delete, data: { confirm: "【確認】ジャンルを削除してもよろしいですか？" } do %>x<% end %></div>
-
-  <% end %>
-<% end %>
+</div>

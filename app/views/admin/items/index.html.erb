@@ -1,10 +1,23 @@
-<h1>投稿一覧</h1>
+<!--投稿一覧画面-->
+<div class="container">
+  <div class="col-xs-12">
+    <h3 class="headline">投稿一覧</h3>
 
-<% @items.each do |item| %>
-<%= link_to admin_item_path(item.id) do %>
-    <div><%= item.user.last_name %><%= item.user.first_name %></div>
-    <div><%= item.name %></div>
-    <div><%= item.title %></div>
-    <div><%= item.body %></div>
-  <% end %>
-<% end %>
+      <table class="table table-bordered table-condensed">
+
+        <tr>
+          <class="col-xs-2">
+
+          <% @items.each do |item| %>
+              <%= link_to admin_item_path(item.id) do %>
+                <div><%= item.user.last_name %><%= item.user.first_name %></div>
+                <div><%= item.title %></div>
+                <div><%= item.name %></div>
+                <div><%= item.body %></div>
+              <% end %>
+          <% end %>
+        </tr>
+      </table>
+
+  </div>
+</div>

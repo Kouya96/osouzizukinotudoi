@@ -1,29 +1,33 @@
+<!--管理者トップ画面-->
 <div class="container">
   <div class="col-xs-12">
-   <h2><strong>管理者トップページ</strong></h2>
+    <h3 class="headline">管理者トップページ</h3>
 
-     <table class="table table-bordered table-condensed">
-
-     <tr>
-       <class="col-xs-2">
-       <td><h4><%= link_to "会員一覧", admin_users_path, class: 'nav-link text-dark' %></h4></td>
-       <td><h5>会員の一覧や登録内容を確認。</h5>
-       <h5>不正な手段で登録した会員や、不適切な投稿を行う会員の利用停止はこちらから</h5></td>
-     </tr>
-
-     <tr>
-       <class="col-xs-2">
-       <td><h4><%= link_to "投稿履歴一覧", admin_items_path, class: 'nav-link text-dark' %></h4></td>
-       <td><h5>不適切な投稿の削除を行う際はこちらから</h5></td>
-     </tr>
+      <table class="table table-bordered table-condensed">
 
       <tr>
-       <class="col-xs-2">
-        <td><h4><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></h4></td>
+        <class="col-xs-2">
+        <td><h4><%= link_to "会員一覧", admin_users_path, class: 'nav-link' %></h4></td>
+        <td><h5>会員の一覧や登録内容を確認。</h5>
+        <h5>不正な手段で登録した会員や、不適切な投稿を行う会員の利用停止はこちらから</h5></td>
+      </tr>
+
+      <tr>
+        <class="col-xs-2">
+        <td><h4><%= link_to "投稿履歴一覧", admin_items_path, class: 'nav-link' %></h4></td>
+        <td><h5>不適切な投稿の削除を行う際はこちらから</h5></td>
+      </tr>
+
+      <tr>
+        <class="col-xs-2">
+        <td><h4><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link' %></h4></td>
         <td><h5>ジャンルの確認、追加、削除はこちらから</h5></td>
       </tr>
 
-     </table>
+      </table>
 
 
- <%= link_to "ログアウト", destroy_admin_session_path, class: 'btn btn-secondary', method: :delete %>
+      <%= link_to "ログアウト", destroy_admin_session_path, class: 'btn btn-secondary', method: :delete %>
+
+  </div>
+</div>
