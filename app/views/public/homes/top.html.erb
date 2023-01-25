@@ -1,12 +1,55 @@
 <!--トップページ-->
 <div style="text-align: center">
 
-  <img src="assets/Top用画像2.jpg">
-    <p>
-      <h2 class="heading-016">お掃除好きの集いへようこそへ♪</h2>
+  <div class="swiper-container" >
+  <div class="swiper-wrapper" >
+    <% [1,2,3].each do |i| %>
+      <div class="swiper-slide" style="background-image: url(assets/topimage<%= i %>.jpg)" >
 
-      <h6>このサイトは、オススメのお掃除用品を共有し合える、レビューサイトです♪<br>
-      会員でない方も商品の閲覧はできますが、投稿には会員登録が必要になります。<br>
-      </h6>
+      </div>
+    <% end %>
+  </div>
+
+
+  <!-- ボタンが必要な場合は追記 -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+  <!--<img src="assets/topimage1.jpg" class="topimage" width="800" height="auto" >-->
+    <p>
+      <h2 class="midasi">お掃除好きの集いへようこそへ♪</h2>
+
+      <h5>このサイトは、オススメのお掃除用品を共有し合える、レビューサイトです♪<br>
+      会員でない方もゲストログインでレビューの閲覧は可能です。<br>
+      レビューの投稿や、コメント投稿は会員の方のみ可能です。<br>
+      ぜひ会員登録をして、レビューを共有し合い、失敗のないお買い物を<br>
+      するために役立ててください♪<br>
+      </h5>
     </p>
 </div>
+
+
+<script>
+  const swiper = new Swiper('.swiper-container', {
+  // Optional parameters
+  loop: true,
+
+  
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+
+
+
+
+</script>

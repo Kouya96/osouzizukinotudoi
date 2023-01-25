@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 // 見出し
-.heading-029 {
+.headline {
     display: inline-block;
     position: relative;
     margin: calc(3.5em / 2) 0 calc(3.5em / 4) calc(3.5em / 2);
@@ -11,7 +11,7 @@
     line-height: 1;
 }
 
-.heading-029::before {
+.headline::before {
     position: absolute;
     bottom: calc(-3.5em / 4);
     left: calc(-3.5em / 2);
@@ -26,27 +26,56 @@
 
 
 // トップ画面の見出し
-.heading-016 {
+.midasi {
     display: flex;
     justify-content: center;
     align-items: center;
     color: #333333;
 }
 
-.heading-016::before,
-.heading-016::after {
+.midasi::before,
+.midasi::after {
     width: 3px;
     height: 40px;
     background-color: #52e713;
     content: '';
 }
 
-.heading-016::before {
+.midasi::before {
     transform: rotate(-35deg);
     margin-right: 30px;
 }
 
-.heading-016::after {
+.midasi::after {
     transform: rotate(35deg);
     margin-left: 30px;
+}
+
+.topimage {
+    width: 800px;
+    height: auto;
+}
+
+
+
+
+.swiper-container {
+  width: 100%;
+  height: 800px; //お好みの高さ
+  background-color: rgba(0,0,0,0.8  );
+
+  .swiper-wrapper {
+
+    .swiper-slide {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 100%;
+    }
+
+　　// 正面のスライド以外は小さく＆半透明に
+    .swiper-slide:not(.swiper-slide-active) {
+      opacity: 0.3;
+    }
+  }
 }
