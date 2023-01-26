@@ -34,8 +34,11 @@
   const swiper = new Swiper('.swiper-container', {
   // Optional parameters
   loop: true,
+  autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
 
-  
 
   // Navigation arrows
   navigation: {
@@ -48,7 +51,6 @@
     el: '.swiper-scrollbar',
   },
 });
-
 
 
 
