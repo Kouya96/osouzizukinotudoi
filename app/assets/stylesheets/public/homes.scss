@@ -1,3 +1,81 @@
 // Place all the styles related to the public::homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// 見出し
+.headline {
+    display: inline-block;
+    position: relative;
+    margin: calc(3.5em / 2) 0 calc(3.5em / 4) calc(3.5em / 2);
+    color: #333333;
+    line-height: 1;
+}
+
+.headline::before {
+    position: absolute;
+    bottom: calc(-3.5em / 4);
+    left: calc(-3.5em / 2);
+    z-index: -1;
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    background: #8ef28c;
+    content: '';
+}
+
+
+
+// トップ画面の見出し
+.midasi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333333;
+}
+
+.midasi::before,
+.midasi::after {
+    width: 3px;
+    height: 40px;
+    background-color: #52e713;
+    content: '';
+}
+
+.midasi::before {
+    transform: rotate(-35deg);
+    margin-right: 30px;
+}
+
+.midasi::after {
+    transform: rotate(35deg);
+    margin-left: 30px;
+}
+
+.topimage {
+    width: 800px;
+    height: auto;
+}
+
+
+
+
+.swiper-container {
+  width: 100%;
+  height: 800px; //お好みの高さ
+  background-color: rgba(0,0,0,0.8  );
+
+  .swiper-wrapper {
+
+    .swiper-slide {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 100%;
+    }
+
+　　// 正面のスライド以外は小さく＆半透明に
+    .swiper-slide:not(.swiper-slide-active) {
+      opacity: 0.3;
+    }
+  }
+}

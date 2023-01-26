@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.balloon-008 {
+.fukidasi {
     display: flex;
     align-items: center;
     position: relative;
@@ -15,8 +15,8 @@
     color: #333333;
 }
 
-.balloon-008::before,
-.balloon-008::after {
+.fukidasi::before,
+.fukidasi::after {
     position: absolute;
     left: -15px;
     width: 15px;
@@ -25,11 +25,11 @@
     content: '';
 }
 
-.balloon-008::before {
+.fukidasi::before {
     background-color: #39ea56;
 }
 
-.balloon-008::after {
+.fukidasi::after {
     left: -11px;
     background-color: #fff;
 }

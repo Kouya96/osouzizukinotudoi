@@ -1,7 +1,7 @@
 <!--管理者のログイン画面-->
 <div class="container">
 
-  <h2>管理者ログイン</h2>
+  <h3 class="headline">管理者ログイン</h3>
 
   <%= form_with model: @admin, url: admin_session_path do |f| %>
 
@@ -14,9 +14,11 @@
       <%= f.label :パスワード %><br/>
       <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
-
+    
+    <br>
     <div class="actions">
       <%= f.submit "ログイン", class: "btn btn-primary" %>
     </div>
+    
   <% end %>
 </div>

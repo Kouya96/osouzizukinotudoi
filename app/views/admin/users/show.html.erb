@@ -1,17 +1,40 @@
-このユーザーは
-<div><%= @user.last_name + @user.first_name %></div>
-<div><%= @user.email %></div>
-<div><%= @user.introduction %></div>
+<!--会員詳細画面-->
+<div class="container">
+  <div class="col-xs-12">
+    <h3 class="headline">会員詳細画面</h3>
 
-<% if @user.is_active %>
-  このユーザーは有効です。
-  <%= link_to "退会処理", admin_withdraw_path, method: :patch, class: "btn btn-danger" %>
+      <table class="table table-bordered table-condensed">
 
-<% else %>
-  このユーザーは退会済みです。
-  <%= link_to "有効にする", admin_restore_path, method: :patch, class: "btn btn-success" %>
+        <tr>
+          <div class="col-xs-2">
+            <td><div>名前：<%= @user.last_name + @user.first_name %></div></td>
+          </div>
+        </tr>
 
-<% end %>
+        <tr>
+          <div class="col-xs-2">
+            <td><div>メールアドレス：<%= @user.email %></div></td>
+          </div>
+        </tr>
 
+        <tr>
+          <div class="col-xs-2">
+            <td><div>自己紹介文：<%= @user.introduction %></div></td>
+          </div>
+        </tr>
 
+        <td>
+          <% if @user.is_active %>
+          このユーザーは有効です。
+          <%= link_to "退会処理", admin_withdraw_path, method: :patch, class: "btn btn-danger" %>
 
+          <% else %>
+          このユーザーは退会済みです。
+          <%= link_to "有効にする", admin_restore_path, method: :patch, class: "btn btn-success" %>
+          <% end %>
+        </td>
+
+      </table>
+
+  </div>
+</div>

@@ -1,3 +1,24 @@
 // Place all the styles related to the admin::items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// 見出し
+.headline {
+    display: inline-block;
+    position: relative;
+    margin: calc(3.5em / 2) 0 calc(3.5em / 4) calc(3.5em / 2);
+    color: #333333;
+    line-height: 1;
+}
+
+.headline::before {
+    position: absolute;
+    bottom: calc(-3.5em / 4);
+    left: calc(-3.5em / 2);
+    z-index: -1;
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    background: #8ef28c;
+    content: '';
+}

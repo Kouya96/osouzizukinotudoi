@@ -3,3 +3,50 @@
 
 /*FontAwesomeの導入*/
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+
+
+.hedda-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    margin: 0 auto;
+    padding: .8em 2em;
+    border: none;
+    border-radius: 25px;
+    background-color: #b96927;
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 1em;
+}
+.hedda-button:hover {
+    animation: anima-button-041 2s linear infinite;
+}
+
+@keyframes anima-button-041 {
+    7% {
+        transform: translateY(-15px);
+    }
+    15% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-7px);
+    }
+    25% {
+        transform: translateY(0);
+    }
+}
+
+
+// サイト全体に反映
+body {
+    font-family: "Sawarabi Gothic";
+}
+
+
+// ヘッダー部分にのみ反映
+.wf-nicomoji {
+    font-family: "Nico Moji";
+}

@@ -33,7 +33,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'homes/top'
 
     resources :items
-    resources :genres, only: [:index, :create, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update]
     patch '/users/:id/withdraw' => 'users#withdraw', as: 'withdraw'
     patch '/users/:id/restore' => 'users#restore', as: 'restore'

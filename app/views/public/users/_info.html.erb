@@ -1,18 +1,16 @@
 <!--ユーザー情報部分テンプレート-->
-
 <table class='table'>
   <tr><%= image_tag user.get_profile_image, size:'100x100' %></tr>
-  <tr>
-	  <th>名前</th>
-	  <th><%= user.last_name %> <%= user.first_name %></th>
-  </tr>
+    <tr>
+      <th>名前</th>
+      <th><%= user.last_name %> <%= user.first_name %></th>
+    </tr>
 
   <tr>
-	  <th>自己紹介文</th>
-	  <th><%= user.introduction %></th>
+    <th>自己紹介文</th>
+    <th><%= user.introduction %></th>
   </tr>
 </table>
-
 
 <div class='row'>
 
@@ -26,8 +24,7 @@
 
   <!--ゲストログイン-->
   <% if user.last_name != "guestuser" %>
-<div class='row'>
-  <%#= link_to '',edit_public_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
-</div>
+    <div class='row'>
+    </div>
   <% end %>
 </div>
