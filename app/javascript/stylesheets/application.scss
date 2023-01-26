@@ -38,3 +38,15 @@
         transform: translateY(0);
     }
 }
+
+
+// サイト全体に反映
+body {
+    font-family: "Sawarabi Gothic";
+}
+
+
+// ヘッダー部分にのみ反映
+.wf-nicomoji {
+    font-family: "Nico Moji";
+}

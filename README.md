@@ -31,7 +31,11 @@
 
 
 ## 設計書
-現在作成中です
+- アプリケーション設計書
+- https://docs.google.com/spreadsheets/d/1nSa2xEnEYTppMIFXGZoEHlt1U1BgYSl6IebNjoEcApI/edit#gid=1338033713
+
+- テーブル定義書
+- https://docs.google.com/spreadsheets/d/1ZG-B-mYWxt3lakJSotzThGRxpQsEbuJ2V9SykiOnsZk/edit#gid=856357510
 
 
 ## 開発環境
@@ -43,4 +47,5 @@
 
 
 ## 使用素材
-使用検討中です
+- トップページ、Aboutページ使用素材はこちらのサイトから取得
+https://o-dan.net/ja/

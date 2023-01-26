@@ -6,22 +6,32 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
+    <!--フォントの変更-->
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+
 
    <%= stylesheet_link_tag "application.css", media: "all", 'data-turbolinks-track': "reload" %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- Swiperの全ての機能 -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    
   </head>
 
 <!--ここからヘッダー部分-->
-  <body class="d-flex flex-column vh-100">
-    <header class="shadow-sm "style="background:rgb(1,154,102); position: width:100%; z-index:10;">
+  <body class= "d-flex flex-column vh-100">
+    <header class="wf-nicomoji shadow-sm "style="background:rgb(1,154,102); position: width:100%; z-index:10;">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <%= image_tag ('logo.png'), size:"80x80",class:"rounded-circle logo" %>
-            <h4 class="logo">
-              <%= link_to "お掃除好きの集い", root_path, class: 'nav-link text-dark' %></h4>
+            <h4>
+              <%= link_to "おそうじずきのつどい", root_path, class: 'nav-link text-dark logo' %></h4>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
               aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -32,7 +42,7 @@
 
                 <!--会員ログインしているとき-->
                   <% if user_signed_in? %>
-                    <p><%= current_user.last_name %><%= current_user.first_name %>さんでログイン中</p>
+                    <p><%= current_user.last_name %><%= current_user.first_name %>さんでログインしています</p>
 
                     <li style="margin-left: 10px;"><%= link_to "マイページ", public_user_path(current_user.id), class: 'hedda-button nav-link text-dark' %></li><!--マイページへのリンク-->
                     <li style="margin-left: 10px;"><%= link_to "投稿一覧", public_items_path, class: 'hedda-button nav-link text-dark' %></li><!--商品一覧へのリンク-->
