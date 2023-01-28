@@ -2,23 +2,20 @@
 <div style="text-align: center">
 
   <div class="swiper-container" >
-  <div class="swiper-wrapper" >
-    <!--<#% [1,2,3].each do |i| %>-->
+    <div class="swiper-wrapper" >
+
+      <!--トップページのスライドの画像３枚-->
       <div class=" topimage-1 swiper-slide" ></div>
       <div class=" topimage-2 swiper-slide" ></div>
       <div class=" topimage-3 swiper-slide" ></div>
 
-  
-    <%# end %>
+    </div>
+
+  <!-- スライドのボタン -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
 
-
-  <!-- ボタンが必要な場合は追記 -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-</div>
-
-  <!--<img src="assets/topimage1.jpg" class="topimage" width="800" height="auto" >-->
     <p>
       <h2 class="midasi">お掃除好きの集いへようこそへ♪</h2>
 
@@ -29,8 +26,8 @@
       するために役立ててください♪<br>
       </h5>
     </p>
-</div>
 
+</div>
 
 <script>
   const swiper = new Swiper('.swiper-container', {
@@ -40,7 +37,6 @@
         delay: 2500,
         disableOnInteraction: false,
       },
-
 
   // Navigation arrows
   navigation: {
@@ -52,8 +48,7 @@
   scrollbar: {
     el: '.swiper-scrollbar',
   },
+  spaceBetween: 1000,
 });
-
-
 
 </script>
