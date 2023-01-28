@@ -51,10 +51,6 @@
     margin-left: 30px;
 }
 
-.topimage {
-    width: 800px;
-    height: auto;
-}
 
 
 .topimage-1 {
@@ -74,9 +70,10 @@
 
 
 .swiper-container {
-  width: 100%;
-  height: 800px; //お好みの高さ
+  width: 70%;  //スライドの横幅
+  height: 500px;  //スライドの高さ
   background-color: rgba(0,0,0,0.8  );
+  margin: auto;  //スライドを中央に
 
   .swiper-wrapper {
 

@@ -48,6 +48,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :users, only: [:show, :edit, :update, :withdraw]
     resources :items, only: [:index, :show, :new, :destroy, :create, :edit, :update, :search] do
     resources :comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
     end
 
   end

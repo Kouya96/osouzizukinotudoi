@@ -5,8 +5,10 @@
       <table class="table table-bordered table-condensed">
 
         <p>
-          <strong class="information-link">登録情報</strong>
+          <h4 class="information-link">登録情報</h4>
+          <% if @user.id == current_user.id %>
           <%= link_to " 編集する", edit_public_user_path, class: "btn btn-success" %>
+          <% end %>
         </p>
 
         <tr>
