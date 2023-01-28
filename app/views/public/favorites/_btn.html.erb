@@ -1,0 +1,17 @@
+<% if current_user.last_name == "guestuser" %>
+  <i class="fas fa-heart" aria-hidden="true"></i>
+    <%= item.favorites.count %> ｲｲﾈ!
+<% else %>
+
+  <% if item.favorite_by?(current_user) %>
+    <%= link_to public_item_favorites_path(item), method: :delete, remote: true do %>
+      <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+      <%= item.favorites.count %> ｲｲﾈ!
+    <% end %>
+  <% else %>
+    <%= link_to public_item_favorites_path(item), method: :post, remote: true do %>
+      <i class="fas fa-heart" aria-hidden="true"></i>
+      <%= item.favorites.count %> ｲｲﾈ!
+    <% end %>
+  <% end %>
+<% end %>

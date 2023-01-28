@@ -13,54 +13,71 @@
 
 
     <div class='col-md-8 offset-md-1'>
-  		<h3 class= "headline" >オススメ商品の詳細</h3>
+      <h3 class= "headline" >オススメ商品の詳細</h3>
 
-  		<table class='table'>
-        <thead>
-          <tr>
-            <th>掃除箇所</th>
-            <th>タイトル</th>
-            <th>オススメ商品名</th>
-            <th>★評価</th>
-         </tr>
-        </thead>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>掃除箇所</th>
+              <th>タイトル</th>
+              <th>オススメ商品名</th>
+              <th>★評価</th>
+           </tr>
+          </thead>
 
-        <tbody>
-          <tr>
-            <td><%= @item.genre.name %></td>
-            <td><%= @item.title %></td>
-            <td><%= @item.name %></td>
+          <tbody>
+            <tr>
+              <td><%= @item.genre.name %></td>
+              <td><%= @item.title %></td>
+              <td><%= @item.name %></td>
 
-        <td><div id=<%= "view_star_#{@item.id}" %> data-score="<%= @item.star %>"></div></td>
-        <script>
-          // scriptファイルをどのidの部分に配置するかを指定
-          $("<%= "#view_star_#{@item.id}" %>").empty();
-          var r_elem = document.querySelector("<%= "#view_star_#{@item.id}" %>");
-          var r_opt = {
-          starOff:  '<%= asset_path('star-off.png') %>',
-          starOn : '<%= asset_path('star-on.png') %>',
-          readOnly: true,
-          };
-           raty(r_elem,r_opt);
-        </script>
+          <td><div id=<%= "view_star_#{@item.id}" %> data-score="<%= @item.star %>"></div></td>
+          <script>
+            // scriptファイルをどのidの部分に配置するかを指定
+            $("<%= "#view_star_#{@item.id}" %>").empty();
+            var r_elem = document.querySelector("<%= "#view_star_#{@item.id}" %>");
+            var r_opt = {
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            readOnly: true,
+            };
+            raty(r_elem,r_opt);
+          </script>
 
-          </tr>
-        </tbody>
-      </table>
-
-
-     <table class='table'>
-        <thead>
-          <tr>
-            <th>～実際に使ってみた感想～</th>
-        </thead>
+            </tr>
+          </tbody>
+        </table>
 
 
-        <tbody>
-          <tr>
-            <td class="balloon"><%= @item.body %></td>
-          </tr>
-        </tbody>
+       <table class='table'>
+          <thead>
+            <tr>
+              <th colspan="2">～実際に使ってみた感想～</th>
+            </tr>
+          </thead>
+
+　　　  　<!--実際に使ってみた感想の中身部分-->
+          <tbody>
+            <tr>
+              <td>
+                <!--投稿者のアイコンと名前-->
+                <%= link_to public_user_path(@item.user) do %>
+                <%= image_tag @item.user.get_profile_image, size: "60x60" %><br>
+                <%= @item.user.last_name %><%= @item.user.first_name %>
+                <% end %>
+              </td>
+              
+              <!--投稿内容吹き出し-->
+              <td class="balloon">
+                  <%= @item.body %>
+              </td>
+            </tr>
+
+            <!--いいね機能の表示-->
+            <tr>
+              <td colspan="2" class = <%= "favorite-" + @item.id.to_s %>><%= render "public/favorites/btn", item: @item %></td>
+            </tr>
+          </tbody>
 
       </table>
 
@@ -70,21 +87,21 @@
       <% end %>
 
 
-    <p>
-     <table class='table'>
-        <thead>
-          <tr>
-            <th>コメント一覧</th>
-        </thead>
+      <p>
+       <table class='table'>
+          <thead>
+            <tr>
+              <th>コメント一覧</th>
+          </thead>
 
-        <tbody>
-          <tr>
-            <%= render "public/comments/index", item: @item %>
-            <%= render "public/comments/form", item: @item, comment: @item_comment %>
-          </tr>
-       </tbody>
-      </table>
-    </p>
+          <tbody>
+            <tr>
+              <%= render "public/comments/index", item: @item %>
+              <%= render "public/comments/form", item: @item, comment: @item_comment %>
+            </tr>
+         </tbody>
+        </table>
+      </p>
 
     </div>
   </div>

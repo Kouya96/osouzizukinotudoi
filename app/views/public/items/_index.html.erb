@@ -7,12 +7,12 @@
         <th>タイトル</th>
         <th>オススメ商品名</th>
         <th>★評価</th>
-        <th>詳細ページ</th>
+        <th colspan="3">詳細ページ</th>
         <th colspan="3"></th>
       </tr>
     </section>
   </thead>
-  
+
   <tbody>
     <% items.each do |item| %>
       <tr>
@@ -34,8 +34,9 @@
 
         <td><%= link_to "詳細", public_item_path(item) %></td>
         <td>コメント数: <%= item.comments.count %></td>
+        <td>イイネ数: <%= item.favorites.count %> </td>
       </tr>
-      
+
     <% end %>
   </tbody>
 </table>
