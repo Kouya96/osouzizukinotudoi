@@ -16,7 +16,7 @@
   <tbody>
     <% items.each do |item| %>
       <tr>
-        <td><%= item.genre.name %></td>
+        <td><%= item.genre.present? ? item.genre.name : '未登録' %></td>
         <td><%= item.title %></td>
         <td><%= item.name %></td>
 
