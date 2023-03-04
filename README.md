@@ -1,7 +1,7 @@
 # お掃除好きの集い
 
-## :green_book:サイト概要
-### サイトテーマ
+## :bulb:サイト概要
+### :green_book:サイトテーマ
 <p>オススメの掃除用品を紹介したり、掃除箇所毎に検索、実際に使用してみた使用感やおすすめ掃除方法を投稿し、共有できるレビューサイト</p>
 
 
@@ -30,7 +30,7 @@
 - 新商品が出たときの使用感を調べたい時
 
 
-## 設計書
+## :bulb:設計書
 - アプリケーション設計書
 - https://docs.google.com/spreadsheets/d/1nSa2xEnEYTppMIFXGZoEHlt1U1BgYSl6IebNjoEcApI/edit#gid=1338033713
 
@@ -38,7 +38,7 @@
 - https://docs.google.com/spreadsheets/d/1ZG-B-mYWxt3lakJSotzThGRxpQsEbuJ2V9SykiOnsZk/edit#gid=856357510
 
 
-## 開発環境
+## :bulb:開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
@@ -46,6 +46,6 @@
 - IDE：Cloud9
 
 
-## 使用素材
+## :bulb:使用素材
 - トップページ、Aboutページ使用素材はこちらのサイトから取得
 https://o-dan.net/ja/
